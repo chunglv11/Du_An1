@@ -17,6 +17,7 @@ namespace _1.DAL.Entities
         public string CCCD { get; set; }
         public string Sdt { get; set; }
         public string MatKhau { get; set; }
+        public string Anh { get; set; }
         public Guid IdCh { get; set; }
         public Guid IdCv { get; set; }
         public int TrangThai { get; set; }
