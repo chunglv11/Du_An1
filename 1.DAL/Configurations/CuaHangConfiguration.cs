@@ -15,6 +15,7 @@ namespace _1.DAL.Configurations
         {
             builder.ToTable("CuaHang");
             builder.HasKey(x => x.Id);
+            builder.Property(c => c.Id).HasDefaultValueSql("newid()");
             builder.Property(c => c.MaCH).HasColumnType("nvarchar(10)").IsRequired();
             builder.Property(c => c.TenCH).HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(c => c.DiaChi).HasColumnType("nvarchar(100)").IsRequired();

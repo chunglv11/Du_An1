@@ -15,6 +15,7 @@ namespace _1.DAL.Configurations
         {
             builder.ToTable("DongSp");
             builder.HasKey(c => c.Id);
+            builder.Property(c => c.Id).HasDefaultValueSql("newid()");
             builder.Property(c => c.MaDsp).HasColumnType("nvarchar(10)").IsRequired();
             builder.Property(c => c.TenDsp).HasColumnType("nvarchar(100)").IsRequired();
         }

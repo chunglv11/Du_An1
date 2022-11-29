@@ -15,6 +15,7 @@ namespace _1.DAL.Configurations
         {
             builder.ToTable("KichCo");
             builder.HasKey(c => c.Id);
+            builder.Property(c => c.Id).HasDefaultValueSql("newid()");
             builder.Property(c => c.MaKc).HasColumnType("nvarchar(10)").IsRequired();
             builder.Property(c => c.TenKc).HasColumnType("nvarchar(100)").IsRequired();
         }
