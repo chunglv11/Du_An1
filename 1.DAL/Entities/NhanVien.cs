@@ -9,6 +9,8 @@ namespace _1.DAL.Entities
     public class NhanVien
     {
         public Guid Id { get; set; }
+        public Guid IdCh { get; set; }
+        public Guid IdCv { get; set; }
         public string MaNv { get; set; }
         public string HoTenNv { get; set; }
         public int GioiTinh { get; set; }
@@ -18,8 +20,7 @@ namespace _1.DAL.Entities
         public string Sdt { get; set; }
         public string MatKhau { get; set; }
         public string Anh { get; set; }
-        public Guid IdCh { get; set; }
-        public Guid IdCv { get; set; }
+        
         public int TrangThai { get; set; }
         public virtual CuaHang CuaHang { get; set; }
         public virtual ChucVu ChucVu { get; set; }
