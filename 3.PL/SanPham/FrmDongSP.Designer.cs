@@ -33,6 +33,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtg_DongSP_Show = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tb_DongSP_TimKIem = new System.Windows.Forms.TextBox();
             this.btn_DongSP_Xoa = new System.Windows.Forms.Button();
             this.btn_DongSP_Back = new System.Windows.Forms.Button();
             this.btn_DongSP_Sua = new System.Windows.Forms.Button();
@@ -43,8 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tb_maDongSP = new System.Windows.Forms.TextBox();
             this.tb_TenDongSP = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb_DongSP_TimKIem = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DongSP_Show)).BeginInit();
@@ -95,6 +95,7 @@
             this.dtg_DongSP_Show.RowTemplate.Height = 29;
             this.dtg_DongSP_Show.Size = new System.Drawing.Size(587, 554);
             this.dtg_DongSP_Show.TabIndex = 17;
+            this.dtg_DongSP_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DongSP_Show_CellClick);
             // 
             // groupBox1
             // 
@@ -112,6 +113,26 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chức Năng";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
+            this.label1.Location = new System.Drawing.Point(209, 188);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 23);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "Tìm kiếm :";
+            // 
+            // tb_DongSP_TimKIem
+            // 
+            this.tb_DongSP_TimKIem.Location = new System.Drawing.Point(12, 231);
+            this.tb_DongSP_TimKIem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tb_DongSP_TimKIem.Name = "tb_DongSP_TimKIem";
+            this.tb_DongSP_TimKIem.Size = new System.Drawing.Size(503, 38);
+            this.tb_DongSP_TimKIem.TabIndex = 53;
             // 
             // btn_DongSP_Xoa
             // 
@@ -215,26 +236,6 @@
             this.tb_TenDongSP.Name = "tb_TenDongSP";
             this.tb_TenDongSP.Size = new System.Drawing.Size(496, 34);
             this.tb_TenDongSP.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
-            this.label1.Location = new System.Drawing.Point(209, 188);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 23);
-            this.label1.TabIndex = 54;
-            this.label1.Text = "Tìm kiếm :";
-            // 
-            // tb_DongSP_TimKIem
-            // 
-            this.tb_DongSP_TimKIem.Location = new System.Drawing.Point(12, 231);
-            this.tb_DongSP_TimKIem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tb_DongSP_TimKIem.Name = "tb_DongSP_TimKIem";
-            this.tb_DongSP_TimKIem.Size = new System.Drawing.Size(503, 38);
-            this.tb_DongSP_TimKIem.TabIndex = 53;
             // 
             // FrmDongSP
             // 

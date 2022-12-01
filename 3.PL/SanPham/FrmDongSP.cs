@@ -121,5 +121,16 @@ namespace _3.PL.SanPham
         {
             this.Close();
         }
+
+        private void dtg_DongSP_Show_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow r = dtg_DongSP_Show.Rows[e.RowIndex];
+                _DongSP = _IDongSPSV.GetAll().FirstOrDefault(c => c.Id == Guid.Parse(r.Cells[0].Value.ToString()));
+                tb_TenDongSP.Text = r.Cells[1].Value.ToString();
+                tb_maDongSP.Text = r.Cells[2].Value.ToString();
+            }
+        }
     }
 }
