@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _3.PL.SanPham;
 using _3.PL.Views;
 namespace _3.PL
 {
@@ -17,7 +18,7 @@ namespace _3.PL
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new _Main());
+            Application.Run(new FrmDongSP());
         }
     }
 }
