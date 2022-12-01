@@ -8,15 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _3.PL.Views
+namespace _3.PL.Views.NhanVien
 {
-    public partial class _Main : Form
+    public partial class FrmNhanVien : Form
     {
-        public _Main()
+        public FrmNhanVien()
         {
             InitializeComponent();
         }
-
-        
     }
 }

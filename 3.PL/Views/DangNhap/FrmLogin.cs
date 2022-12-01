@@ -8,15 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _3.PL.Views
+namespace _3.PL.Views.DangNhap
 {
-    public partial class _Main : Form
+    public partial class FrmLogin : Form
     {
-        public _Main()
+        public FrmLogin()
         {
             InitializeComponent();
         }
-
-        
     }
 }

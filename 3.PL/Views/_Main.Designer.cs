@@ -29,133 +29,43 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_Main));
-            this.Tbl_HomeView = new System.Windows.Forms.TableLayoutPanel();
-            this.tbl_Menu = new System.Windows.Forms.TableLayoutPanel();
-            this.tbl_Logo = new System.Windows.Forms.TableLayoutPanel();
-            this.ptb_Logo = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btn_BanHang = new System.Windows.Forms.Button();
-            this.Panel_Desktop = new System.Windows.Forms.Panel();
+            this.panel_Desktop = new System.Windows.Forms.Panel();
+            this.panel_Desk = new System.Windows.Forms.Panel();
             this.ptb_Desktop = new System.Windows.Forms.PictureBox();
-            this.danhMụcSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nhàSảnXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đơnVịSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_DangXuat = new System.Windows.Forms.Button();
+            this.btn_ThongKe = new System.Windows.Forms.Button();
+            this.btn_KhachHang = new System.Windows.Forms.Button();
+            this.btn_NhanVien = new System.Windows.Forms.Button();
+            this.btn_SanPham = new System.Windows.Forms.Button();
             this.btn_HoaDon = new System.Windows.Forms.Button();
-            this.Tbl_HomeView.SuspendLayout();
-            this.tbl_Menu.SuspendLayout();
-            this.tbl_Logo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_Logo)).BeginInit();
-            this.Panel_Desktop.SuspendLayout();
+            this.btn_BanHang = new System.Windows.Forms.Button();
+            this.ptb_Avata = new System.Windows.Forms.PictureBox();
+            this.panel_Desktop.SuspendLayout();
+            this.panel_Desk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_Desktop)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_Avata)).BeginInit();
             this.SuspendLayout();
             // 
-            // Tbl_HomeView
+            // panel_Desktop
             // 
-            this.Tbl_HomeView.BackColor = System.Drawing.Color.White;
-            this.Tbl_HomeView.ColumnCount = 2;
-            this.Tbl_HomeView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.89433F));
-            this.Tbl_HomeView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.10567F));
-            this.Tbl_HomeView.Controls.Add(this.tbl_Menu, -1, 0);
-            this.Tbl_HomeView.Controls.Add(this.Panel_Desktop, 1, 0);
-            this.Tbl_HomeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Tbl_HomeView.Location = new System.Drawing.Point(0, 0);
-            this.Tbl_HomeView.Margin = new System.Windows.Forms.Padding(19, 5, 21, 5);
-            this.Tbl_HomeView.Name = "Tbl_HomeView";
-            this.Tbl_HomeView.RowCount = 1;
-            this.Tbl_HomeView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.Tbl_HomeView.Size = new System.Drawing.Size(1498, 686);
-            this.Tbl_HomeView.TabIndex = 0;
+            this.panel_Desktop.Controls.Add(this.panel_Desk);
+            this.panel_Desktop.Controls.Add(this.panel1);
+            this.panel_Desktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Desktop.Location = new System.Drawing.Point(0, 0);
+            this.panel_Desktop.Name = "panel_Desktop";
+            this.panel_Desktop.Size = new System.Drawing.Size(1433, 745);
+            this.panel_Desktop.TabIndex = 1;
             // 
-            // tbl_Menu
+            // panel_Desk
             // 
-            this.tbl_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.tbl_Menu.ColumnCount = 1;
-            this.tbl_Menu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbl_Menu.Controls.Add(this.tbl_Logo, 0, 0);
-            this.tbl_Menu.Controls.Add(this.btn_BanHang, 0, 1);
-            this.tbl_Menu.Controls.Add(this.btn_HoaDon, 0, 11);
-            this.tbl_Menu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbl_Menu.Location = new System.Drawing.Point(0, 0);
-            this.tbl_Menu.Margin = new System.Windows.Forms.Padding(0);
-            this.tbl_Menu.Name = "tbl_Menu";
-            this.tbl_Menu.RowCount = 14;
-            this.tbl_Menu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tbl_Menu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tbl_Menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tbl_Menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tbl_Menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tbl_Menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tbl_Menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tbl_Menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tbl_Menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tbl_Menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tbl_Menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tbl_Menu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbl_Menu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 368F));
-            this.tbl_Menu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 77F));
-            this.tbl_Menu.Size = new System.Drawing.Size(342, 686);
-            this.tbl_Menu.TabIndex = 0;
-            // 
-            // tbl_Logo
-            // 
-            this.tbl_Logo.ColumnCount = 2;
-            this.tbl_Logo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tbl_Logo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbl_Logo.Controls.Add(this.ptb_Logo, 0, 0);
-            this.tbl_Logo.Controls.Add(this.label1, 1, 0);
-            this.tbl_Logo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbl_Logo.Location = new System.Drawing.Point(0, 0);
-            this.tbl_Logo.Margin = new System.Windows.Forms.Padding(0);
-            this.tbl_Logo.Name = "tbl_Logo";
-            this.tbl_Logo.RowCount = 1;
-            this.tbl_Logo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbl_Logo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tbl_Logo.Size = new System.Drawing.Size(342, 100);
-            this.tbl_Logo.TabIndex = 1;
-            // 
-            // ptb_Logo
-            // 
-            this.ptb_Logo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ptb_Logo.Image = global::_3.PL.Properties.Resources.ho2;
-            this.ptb_Logo.Location = new System.Drawing.Point(3, 3);
-            this.ptb_Logo.Name = "ptb_Logo";
-            this.ptb_Logo.Size = new System.Drawing.Size(94, 94);
-            this.ptb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_Logo.TabIndex = 0;
-            this.ptb_Logo.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.label1.Location = new System.Drawing.Point(103, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(233, 50);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "SHOP3AE";
-            // 
-            // btn_BanHang
-            // 
-            this.btn_BanHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btn_BanHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BanHang.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_BanHang.Location = new System.Drawing.Point(3, 103);
-            this.btn_BanHang.Name = "btn_BanHang";
-            this.btn_BanHang.Size = new System.Drawing.Size(336, 64);
-            this.btn_BanHang.TabIndex = 2;
-            this.btn_BanHang.Text = "Bán Hàng";
-            this.btn_BanHang.UseVisualStyleBackColor = false;
-            // 
-            // Panel_Desktop
-            // 
-            this.Panel_Desktop.Controls.Add(this.ptb_Desktop);
-            this.Panel_Desktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_Desktop.Location = new System.Drawing.Point(345, 3);
-            this.Panel_Desktop.Name = "Panel_Desktop";
-            this.Panel_Desktop.Size = new System.Drawing.Size(1150, 680);
-            this.Panel_Desktop.TabIndex = 1;
+            this.panel_Desk.Controls.Add(this.ptb_Desktop);
+            this.panel_Desk.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Desk.Location = new System.Drawing.Point(320, 0);
+            this.panel_Desk.Name = "panel_Desk";
+            this.panel_Desk.Size = new System.Drawing.Size(1113, 745);
+            this.panel_Desk.TabIndex = 5;
             // 
             // ptb_Desktop
             // 
@@ -164,77 +74,168 @@
             this.ptb_Desktop.Image = ((System.Drawing.Image)(resources.GetObject("ptb_Desktop.Image")));
             this.ptb_Desktop.Location = new System.Drawing.Point(0, 0);
             this.ptb_Desktop.Name = "ptb_Desktop";
-            this.ptb_Desktop.Size = new System.Drawing.Size(1150, 680);
+            this.ptb_Desktop.Size = new System.Drawing.Size(1113, 745);
             this.ptb_Desktop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_Desktop.TabIndex = 1;
+            this.ptb_Desktop.TabIndex = 3;
             this.ptb_Desktop.TabStop = false;
             // 
-            // danhMụcSảnPhẩmToolStripMenuItem
+            // panel1
             // 
-            this.danhMụcSảnPhẩmToolStripMenuItem.Name = "danhMụcSảnPhẩmToolStripMenuItem";
-            this.danhMụcSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.panel1.Controls.Add(this.btn_DangXuat);
+            this.panel1.Controls.Add(this.btn_ThongKe);
+            this.panel1.Controls.Add(this.btn_KhachHang);
+            this.panel1.Controls.Add(this.btn_NhanVien);
+            this.panel1.Controls.Add(this.btn_SanPham);
+            this.panel1.Controls.Add(this.btn_HoaDon);
+            this.panel1.Controls.Add(this.btn_BanHang);
+            this.panel1.Controls.Add(this.ptb_Avata);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(320, 745);
+            this.panel1.TabIndex = 4;
             // 
-            // nhàSảnXuấtToolStripMenuItem
+            // btn_DangXuat
             // 
-            this.nhàSảnXuấtToolStripMenuItem.Name = "nhàSảnXuấtToolStripMenuItem";
-            this.nhàSảnXuấtToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.btn_DangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_DangXuat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_DangXuat.FlatAppearance.BorderSize = 0;
+            this.btn_DangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_DangXuat.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_DangXuat.Location = new System.Drawing.Point(0, 587);
+            this.btn_DangXuat.Name = "btn_DangXuat";
+            this.btn_DangXuat.Size = new System.Drawing.Size(320, 65);
+            this.btn_DangXuat.TabIndex = 7;
+            this.btn_DangXuat.Text = "Đăng Xuất";
+            this.btn_DangXuat.UseVisualStyleBackColor = false;
             // 
-            // đơnVịSảnPhẩmToolStripMenuItem
+            // btn_ThongKe
             // 
-            this.đơnVịSảnPhẩmToolStripMenuItem.Name = "đơnVịSảnPhẩmToolStripMenuItem";
-            this.đơnVịSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.btn_ThongKe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_ThongKe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_ThongKe.FlatAppearance.BorderSize = 0;
+            this.btn_ThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ThongKe.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_ThongKe.Location = new System.Drawing.Point(0, 522);
+            this.btn_ThongKe.Name = "btn_ThongKe";
+            this.btn_ThongKe.Size = new System.Drawing.Size(320, 65);
+            this.btn_ThongKe.TabIndex = 6;
+            this.btn_ThongKe.Text = "Thống Kê";
+            this.btn_ThongKe.UseVisualStyleBackColor = false;
+            // 
+            // btn_KhachHang
+            // 
+            this.btn_KhachHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_KhachHang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_KhachHang.FlatAppearance.BorderSize = 0;
+            this.btn_KhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_KhachHang.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_KhachHang.Location = new System.Drawing.Point(0, 457);
+            this.btn_KhachHang.Name = "btn_KhachHang";
+            this.btn_KhachHang.Size = new System.Drawing.Size(320, 65);
+            this.btn_KhachHang.TabIndex = 5;
+            this.btn_KhachHang.Text = "Khách Hàng";
+            this.btn_KhachHang.UseVisualStyleBackColor = false;
+            // 
+            // btn_NhanVien
+            // 
+            this.btn_NhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_NhanVien.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_NhanVien.FlatAppearance.BorderSize = 0;
+            this.btn_NhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_NhanVien.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_NhanVien.Location = new System.Drawing.Point(0, 392);
+            this.btn_NhanVien.Name = "btn_NhanVien";
+            this.btn_NhanVien.Size = new System.Drawing.Size(320, 65);
+            this.btn_NhanVien.TabIndex = 4;
+            this.btn_NhanVien.Text = "Nhân Viên";
+            this.btn_NhanVien.UseVisualStyleBackColor = false;
+            // 
+            // btn_SanPham
+            // 
+            this.btn_SanPham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_SanPham.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_SanPham.FlatAppearance.BorderSize = 0;
+            this.btn_SanPham.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_SanPham.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_SanPham.Location = new System.Drawing.Point(0, 327);
+            this.btn_SanPham.Name = "btn_SanPham";
+            this.btn_SanPham.Size = new System.Drawing.Size(320, 65);
+            this.btn_SanPham.TabIndex = 3;
+            this.btn_SanPham.Text = "Sản Phẩm";
+            this.btn_SanPham.UseVisualStyleBackColor = false;
             // 
             // btn_HoaDon
             // 
-            this.btn_HoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btn_HoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_HoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_HoaDon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_HoaDon.FlatAppearance.BorderSize = 0;
             this.btn_HoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HoaDon.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_HoaDon.Location = new System.Drawing.Point(3, 173);
+            this.btn_HoaDon.Location = new System.Drawing.Point(0, 262);
             this.btn_HoaDon.Name = "btn_HoaDon";
-            this.btn_HoaDon.Size = new System.Drawing.Size(336, 65);
-            this.btn_HoaDon.TabIndex = 3;
+            this.btn_HoaDon.Size = new System.Drawing.Size(320, 65);
+            this.btn_HoaDon.TabIndex = 2;
             this.btn_HoaDon.Text = "Hoá Đơn";
             this.btn_HoaDon.UseVisualStyleBackColor = false;
+            // 
+            // btn_BanHang
+            // 
+            this.btn_BanHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_BanHang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_BanHang.FlatAppearance.BorderSize = 0;
+            this.btn_BanHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_BanHang.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_BanHang.Location = new System.Drawing.Point(0, 197);
+            this.btn_BanHang.Name = "btn_BanHang";
+            this.btn_BanHang.Size = new System.Drawing.Size(320, 65);
+            this.btn_BanHang.TabIndex = 1;
+            this.btn_BanHang.Text = "Bán Hàng";
+            this.btn_BanHang.UseVisualStyleBackColor = false;
+            // 
+            // ptb_Avata
+            // 
+            this.ptb_Avata.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ptb_Avata.Image = global::_3.PL.Properties.Resources.ho2;
+            this.ptb_Avata.Location = new System.Drawing.Point(0, 0);
+            this.ptb_Avata.Name = "ptb_Avata";
+            this.ptb_Avata.Size = new System.Drawing.Size(320, 197);
+            this.ptb_Avata.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptb_Avata.TabIndex = 0;
+            this.ptb_Avata.TabStop = false;
             // 
             // _Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1498, 686);
-            this.Controls.Add(this.Tbl_HomeView);
+            this.ClientSize = new System.Drawing.Size(1433, 745);
+            this.Controls.Add(this.panel_Desktop);
             this.Name = "_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "_Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Tbl_HomeView.ResumeLayout(false);
-            this.tbl_Menu.ResumeLayout(false);
-            this.tbl_Logo.ResumeLayout(false);
-            this.tbl_Logo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_Logo)).EndInit();
-            this.Panel_Desktop.ResumeLayout(false);
+            this.panel_Desktop.ResumeLayout(false);
+            this.panel_Desk.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptb_Desktop)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_Avata)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private TableLayoutPanel Tbl_HomeView;
-        private TableLayoutPanel tbl_Menu;
-        private TableLayoutPanel tbl_Logo;
-        private Label label1;
-        
-        private Panel PanlDesktop;
-        
-        private ToolStripMenuItem danhMụcSảnPhẩmToolStripMenuItem;
-        private ToolStripMenuItem nhàSảnXuấtToolStripMenuItem;
-        private ToolStripMenuItem đơnVịSảnPhẩmToolStripMenuItem;
-        private Panel Panel_Desktop;
-        private PictureBox ptb_Logo;
+        private Panel panel_Desktop;
         private PictureBox ptb_Desktop;
-        private Button btn_BanHang;
+        private Panel panel_Desk;
+        private Panel panel1;
+        private Button btn_KhachHang;
+        private Button btn_NhanVien;
+        private Button btn_SanPham;
         private Button btn_HoaDon;
+        private Button btn_BanHang;
+        private PictureBox ptb_Avata;
+        private Button btn_DangXuat;
+        private Button btn_ThongKe;
     }
 }

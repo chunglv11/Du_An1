@@ -8,15 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _3.PL.Views
+namespace _3.PL.Views.BanHang
 {
-    public partial class _Main : Form
+    public partial class FrmBanHang : Form
     {
-        public _Main()
+        public FrmBanHang()
         {
             InitializeComponent();
         }
-
-        
     }
 }
