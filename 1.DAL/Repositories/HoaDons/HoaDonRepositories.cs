@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories.HoaDons
 {
-    public class HoaDonRepositories
+    public class HoaDonRepositories:IHoaDonRepositories
     {
     }
 }

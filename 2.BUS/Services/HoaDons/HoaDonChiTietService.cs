@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _1.DAL.Repositories.CuaHangs
+namespace _2.BUS.Services.HoaDons
 {
-    public interface ICuaHangRepositories
+    public class HoaDonChiTietService
     {
-
     }
 }
