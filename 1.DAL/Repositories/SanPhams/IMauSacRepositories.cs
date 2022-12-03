@@ -9,14 +9,10 @@ namespace _1.DAL.Repositories.SanPhams
 {
     public interface IMauSacRepositories
     {
-        bool add(MauSac obj);
-
-        bool delete(MauSac obj);
-
-        bool update(MauSac obj);
-
-        MauSac getmaid(Guid id);
-
-        List<MauSac> GetMauSacs();
+        public bool Add(MauSac obj);
+        public bool Remove(MauSac obj);
+        public bool Update(MauSac obj);
+        public List<MauSac> GetAll();
+        public string Check(string input);
     }
 }

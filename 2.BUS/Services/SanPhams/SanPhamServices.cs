@@ -19,33 +19,38 @@ namespace _2.BUS.Services.SanPhams
             _ISanPhamRepos = new SanPhamRepositories();
             _Listsanpham = new List<SanPham>();
         }
-        public bool add(SanPham obj)
+
+        public string add(SanPham obj)
         {
             _ISanPhamRepos.add(obj);
-            return true;
+            return "Thành công";
         }
 
-        public bool delete(SanPham obj)
+        public string delete(SanPham obj)
         {
             _ISanPhamRepos.delete(obj);
-            return true;
+            return "Thành công";
         }
 
-        public SanPham getmaid(Guid id)
+        public List<SanPham> GetAll()
         {
-            throw new NotImplementedException();
-        }
-
-        public List<SanPham> GetSanPhams()
-        {
-            _Listsanpham = _ISanPhamRepos.GetSanPhams();
+            _Listsanpham = _ISanPhamRepos.GetAll();
             return _Listsanpham;
         }
 
-        public bool update(SanPham obj)
+        public List<SanPham> GetAll(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return GetAll();
+            }
+            return _ISanPhamRepos.GetAll().Where(c => c.TenSp.ToLower().Contains(input.ToLower()) || c.MaSp.ToLower().Contains(input.ToLower())).ToList();
+        }
+
+        public string update(SanPham obj)
         {
             _ISanPhamRepos.update(obj);
-            return true;
+            return "Thành công";
         }
     }
 }

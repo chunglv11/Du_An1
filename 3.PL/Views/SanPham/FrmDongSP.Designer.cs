@@ -34,7 +34,7 @@
             this.dtg_DongSP_Show = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tb_DongSP_TimKIem = new System.Windows.Forms.TextBox();
+            this.tb_DongSP_TimKiem = new System.Windows.Forms.TextBox();
             this.btn_DongSP_Xoa = new System.Windows.Forms.Button();
             this.btn_DongSP_Back = new System.Windows.Forms.Button();
             this.btn_DongSP_Sua = new System.Windows.Forms.Button();
@@ -100,7 +100,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.tb_DongSP_TimKIem);
+            this.groupBox1.Controls.Add(this.tb_DongSP_TimKiem);
             this.groupBox1.Controls.Add(this.btn_DongSP_Xoa);
             this.groupBox1.Controls.Add(this.btn_DongSP_Back);
             this.groupBox1.Controls.Add(this.btn_DongSP_Sua);
@@ -120,19 +120,19 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
-            this.label1.Location = new System.Drawing.Point(209, 188);
+            this.label1.Location = new System.Drawing.Point(209, 178);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 23);
             this.label1.TabIndex = 54;
             this.label1.Text = "Tìm kiếm :";
             // 
-            // tb_DongSP_TimKIem
+            // tb_DongSP_TimKiem
             // 
-            this.tb_DongSP_TimKIem.Location = new System.Drawing.Point(12, 231);
-            this.tb_DongSP_TimKIem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tb_DongSP_TimKIem.Name = "tb_DongSP_TimKIem";
-            this.tb_DongSP_TimKIem.Size = new System.Drawing.Size(503, 38);
-            this.tb_DongSP_TimKIem.TabIndex = 53;
+            this.tb_DongSP_TimKiem.Location = new System.Drawing.Point(12, 221);
+            this.tb_DongSP_TimKiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tb_DongSP_TimKiem.Name = "tb_DongSP_TimKiem";
+            this.tb_DongSP_TimKiem.Size = new System.Drawing.Size(503, 38);
+            this.tb_DongSP_TimKiem.TabIndex = 53;
             // 
             // btn_DongSP_Xoa
             // 
@@ -198,7 +198,7 @@
             this.groupBox3.Controls.Add(this.tb_maDongSP);
             this.groupBox3.Controls.Add(this.tb_TenDongSP);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(6, 469);
+            this.groupBox3.Location = new System.Drawing.Point(6, 453);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(553, 275);
             this.groupBox3.TabIndex = 33;
@@ -278,6 +278,6 @@
         private TextBox tb_maDongSP;
         private TextBox tb_TenDongSP;
         private Label label1;
-        private TextBox tb_DongSP_TimKIem;
+        private TextBox tb_DongSP_TimKiem;
     }
 }

@@ -33,7 +33,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtg_NSX_Show = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_NSX_Xoa = new System.Windows.Forms.Button();
             this.btn_NSX_Back = new System.Windows.Forms.Button();
+            this.btn_NSX_Sua = new System.Windows.Forms.Button();
             this.btn_ShowNSX = new System.Windows.Forms.Button();
             this.btn_NSX_Them = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -41,8 +43,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tb_maNSX = new System.Windows.Forms.TextBox();
             this.tb_TenNSX = new System.Windows.Forms.TextBox();
-            this.btn_NSX_Xoa = new System.Windows.Forms.Button();
-            this.btn_NSX_Sua = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tb_NSX_TimKiem = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_NSX_Show)).BeginInit();
@@ -93,9 +95,12 @@
             this.dtg_NSX_Show.RowTemplate.Height = 29;
             this.dtg_NSX_Show.Size = new System.Drawing.Size(572, 397);
             this.dtg_NSX_Show.TabIndex = 17;
+            this.dtg_NSX_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_NSX_Show_CellClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.tb_NSX_TimKiem);
             this.groupBox1.Controls.Add(this.btn_NSX_Xoa);
             this.groupBox1.Controls.Add(this.btn_NSX_Back);
             this.groupBox1.Controls.Add(this.btn_NSX_Sua);
@@ -104,10 +109,21 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(0, 160);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(551, 197);
+            this.groupBox1.Size = new System.Drawing.Size(551, 277);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chức Năng";
+            // 
+            // btn_NSX_Xoa
+            // 
+            this.btn_NSX_Xoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
+            this.btn_NSX_Xoa.Location = new System.Drawing.Point(369, 44);
+            this.btn_NSX_Xoa.Name = "btn_NSX_Xoa";
+            this.btn_NSX_Xoa.Size = new System.Drawing.Size(149, 45);
+            this.btn_NSX_Xoa.TabIndex = 26;
+            this.btn_NSX_Xoa.Text = "Xóa";
+            this.btn_NSX_Xoa.UseVisualStyleBackColor = true;
+            this.btn_NSX_Xoa.Click += new System.EventHandler(this.btn_NSX_Xoa_Click);
             // 
             // btn_NSX_Back
             // 
@@ -119,6 +135,18 @@
             this.btn_NSX_Back.TabIndex = 0;
             this.btn_NSX_Back.Text = "Back";
             this.btn_NSX_Back.UseVisualStyleBackColor = true;
+            this.btn_NSX_Back.Click += new System.EventHandler(this.btn_NSX_Back_Click);
+            // 
+            // btn_NSX_Sua
+            // 
+            this.btn_NSX_Sua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
+            this.btn_NSX_Sua.Location = new System.Drawing.Point(194, 46);
+            this.btn_NSX_Sua.Name = "btn_NSX_Sua";
+            this.btn_NSX_Sua.Size = new System.Drawing.Size(146, 45);
+            this.btn_NSX_Sua.TabIndex = 25;
+            this.btn_NSX_Sua.Text = "Sửa";
+            this.btn_NSX_Sua.UseVisualStyleBackColor = true;
+            this.btn_NSX_Sua.Click += new System.EventHandler(this.btn_NSX_Sua_Click);
             // 
             // btn_ShowNSX
             // 
@@ -130,6 +158,7 @@
             this.btn_ShowNSX.TabIndex = 3;
             this.btn_ShowNSX.Text = "Hiện Thị";
             this.btn_ShowNSX.UseVisualStyleBackColor = true;
+            this.btn_ShowNSX.Click += new System.EventHandler(this.btn_ShowNSX_Click);
             // 
             // btn_NSX_Them
             // 
@@ -141,6 +170,7 @@
             this.btn_NSX_Them.TabIndex = 2;
             this.btn_NSX_Them.Text = "Thêm ";
             this.btn_NSX_Them.UseVisualStyleBackColor = true;
+            this.btn_NSX_Them.Click += new System.EventHandler(this.btn_NSX_Them_Click);
             // 
             // groupBox3
             // 
@@ -149,7 +179,7 @@
             this.groupBox3.Controls.Add(this.tb_maNSX);
             this.groupBox3.Controls.Add(this.tb_TenNSX);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(6, 374);
+            this.groupBox3.Location = new System.Drawing.Point(6, 443);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(545, 271);
             this.groupBox3.TabIndex = 4;
@@ -188,31 +218,32 @@
             this.tb_TenNSX.Size = new System.Drawing.Size(496, 34);
             this.tb_TenNSX.TabIndex = 0;
             // 
-            // btn_NSX_Xoa
+            // label1
             // 
-            this.btn_NSX_Xoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
-            this.btn_NSX_Xoa.Location = new System.Drawing.Point(190, 46);
-            this.btn_NSX_Xoa.Name = "btn_NSX_Xoa";
-            this.btn_NSX_Xoa.Size = new System.Drawing.Size(149, 45);
-            this.btn_NSX_Xoa.TabIndex = 26;
-            this.btn_NSX_Xoa.Text = "Xóa";
-            this.btn_NSX_Xoa.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
+            this.label1.Location = new System.Drawing.Point(211, 177);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 23);
+            this.label1.TabIndex = 60;
+            this.label1.Text = "Tìm kiếm :";
             // 
-            // btn_NSX_Sua
+            // tb_NSX_TimKiem
             // 
-            this.btn_NSX_Sua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
-            this.btn_NSX_Sua.Location = new System.Drawing.Point(369, 46);
-            this.btn_NSX_Sua.Name = "btn_NSX_Sua";
-            this.btn_NSX_Sua.Size = new System.Drawing.Size(146, 45);
-            this.btn_NSX_Sua.TabIndex = 25;
-            this.btn_NSX_Sua.Text = "Sửa";
-            this.btn_NSX_Sua.UseVisualStyleBackColor = true;
+            this.tb_NSX_TimKiem.Location = new System.Drawing.Point(13, 215);
+            this.tb_NSX_TimKiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tb_NSX_TimKiem.Name = "tb_NSX_TimKiem";
+            this.tb_NSX_TimKiem.Size = new System.Drawing.Size(503, 38);
+            this.tb_NSX_TimKiem.TabIndex = 59;
+            this.tb_NSX_TimKiem.TextChanged += new System.EventHandler(this.tb_NSX_TimKiem_TextChanged);
             // 
             // FrmNSX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 695);
+            this.ClientSize = new System.Drawing.Size(1184, 736);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox2);
@@ -224,6 +255,7 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_NSX_Show)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -247,5 +279,7 @@
         private Label label2;
         private TextBox tb_maNSX;
         private TextBox tb_TenNSX;
+        private Label label1;
+        private TextBox tb_NSX_TimKiem;
     }
 }

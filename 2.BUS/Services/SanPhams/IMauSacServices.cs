@@ -9,14 +9,10 @@ namespace _2.BUS.Services.SanPhams
 {
     public interface IMauSacServices
     {
-        bool add(MauSac obj);
-
-        bool delete(MauSac obj);
-
-        bool update(MauSac obj);
-
-        MauSac getmaid(Guid id);
-
-        List<MauSac> GetMauSac();
+        public bool Add(MauSac obj);
+        public bool Remove(MauSac obj);
+        public bool Update(MauSac obj);
+        public List<MauSac> GetAll();
+        public List<MauSac> GetAll(string input);
     }
 }

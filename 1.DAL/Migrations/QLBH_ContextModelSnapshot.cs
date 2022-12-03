@@ -30,8 +30,7 @@ namespace _1.DAL.Migrations
                         .HasDefaultValueSql("newid()");
 
                     b.Property<string>("Anh")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(300)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("GiaBan")
                         .HasColumnType("decimal(9,3)");

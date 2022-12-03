@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-<<<<<<< HEAD
+
 using _3.PL.SanPham;
-=======
+
 using _3.PL.Views.DangNhap;
 using _3.PL.Views.NhanVien;
 using _3.PL.Views.BanHang;
->>>>>>> update 1/12/2022
+
 using _3.PL.Views;
+using _3.PL.Views.SanPham;
+
 namespace _3.PL
 {
     internal static class Program
@@ -24,11 +26,10 @@ namespace _3.PL
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-<<<<<<< HEAD
-            Application.Run(new FrmDongSP());
-=======
-            Application.Run(new FrmLogin());
->>>>>>> update 1/12/2022
+
+            Application.Run(new FrmChiTietSP());
+
+
         }
     }
 }

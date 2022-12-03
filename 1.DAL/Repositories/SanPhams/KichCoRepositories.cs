@@ -34,12 +34,8 @@ namespace _1.DAL.Repositories.SanPhams
 
         public List<KichCo> GetKichCos()
         {
-            return _Context.kichCos.ToList();
-        }
-
-        public KichCo getmaid(Guid id)
-        {
-            throw new NotImplementedException();
+            _kichcolist = _Context.kichCos.ToList();
+            return _kichcolist;
         }
 
         public bool update(KichCo obj)

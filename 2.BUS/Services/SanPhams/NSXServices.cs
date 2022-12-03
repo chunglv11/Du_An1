@@ -29,11 +29,6 @@ namespace _2.BUS.Services.SanPhams
             return true;
         }
 
-        public Nsx getmaid(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Nsx> GetNsx()
         {
             _ListNSX = _INSXRepos.GetNSXs();

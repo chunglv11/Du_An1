@@ -33,6 +33,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtg_MauSac_Show = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tb_MauSac_TimKiem = new System.Windows.Forms.TextBox();
             this.btn_MauSac_Xoa = new System.Windows.Forms.Button();
             this.btn_MauSac_Back = new System.Windows.Forms.Button();
             this.btn_MauSac_Sua = new System.Windows.Forms.Button();
@@ -93,9 +95,12 @@
             this.dtg_MauSac_Show.RowTemplate.Height = 29;
             this.dtg_MauSac_Show.Size = new System.Drawing.Size(574, 401);
             this.dtg_MauSac_Show.TabIndex = 17;
+            this.dtg_MauSac_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_MauSac_Show_CellClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.tb_MauSac_TimKiem);
             this.groupBox1.Controls.Add(this.btn_MauSac_Xoa);
             this.groupBox1.Controls.Add(this.btn_MauSac_Back);
             this.groupBox1.Controls.Add(this.btn_MauSac_Sua);
@@ -104,20 +109,42 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(0, 154);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(553, 201);
+            this.groupBox1.Size = new System.Drawing.Size(553, 293);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chức Năng";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
+            this.label1.Location = new System.Drawing.Point(207, 181);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 23);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "Tìm kiếm :";
+            // 
+            // tb_MauSac_TimKiem
+            // 
+            this.tb_MauSac_TimKiem.Location = new System.Drawing.Point(12, 224);
+            this.tb_MauSac_TimKiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tb_MauSac_TimKiem.Name = "tb_MauSac_TimKiem";
+            this.tb_MauSac_TimKiem.Size = new System.Drawing.Size(503, 38);
+            this.tb_MauSac_TimKiem.TabIndex = 55;
+            this.tb_MauSac_TimKiem.TextChanged += new System.EventHandler(this.tb_MauSac_TimKiem_TextChanged_1);
+            // 
             // btn_MauSac_Xoa
             // 
             this.btn_MauSac_Xoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
-            this.btn_MauSac_Xoa.Location = new System.Drawing.Point(190, 46);
+            this.btn_MauSac_Xoa.Location = new System.Drawing.Point(373, 46);
             this.btn_MauSac_Xoa.Name = "btn_MauSac_Xoa";
             this.btn_MauSac_Xoa.Size = new System.Drawing.Size(149, 45);
             this.btn_MauSac_Xoa.TabIndex = 26;
             this.btn_MauSac_Xoa.Text = "Xóa";
             this.btn_MauSac_Xoa.UseVisualStyleBackColor = true;
+            this.btn_MauSac_Xoa.Click += new System.EventHandler(this.btn_MauSac_Xoa_Click);
             // 
             // btn_MauSac_Back
             // 
@@ -129,16 +156,18 @@
             this.btn_MauSac_Back.TabIndex = 0;
             this.btn_MauSac_Back.Text = "Back";
             this.btn_MauSac_Back.UseVisualStyleBackColor = true;
+            this.btn_MauSac_Back.Click += new System.EventHandler(this.btn_MauSac_Back_Click);
             // 
             // btn_MauSac_Sua
             // 
             this.btn_MauSac_Sua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
-            this.btn_MauSac_Sua.Location = new System.Drawing.Point(369, 46);
+            this.btn_MauSac_Sua.Location = new System.Drawing.Point(192, 46);
             this.btn_MauSac_Sua.Name = "btn_MauSac_Sua";
             this.btn_MauSac_Sua.Size = new System.Drawing.Size(146, 45);
             this.btn_MauSac_Sua.TabIndex = 25;
             this.btn_MauSac_Sua.Text = "Sửa";
             this.btn_MauSac_Sua.UseVisualStyleBackColor = true;
+            this.btn_MauSac_Sua.Click += new System.EventHandler(this.btn_MauSac_Sua_Click);
             // 
             // btn_ShowMauSac
             // 
@@ -150,6 +179,7 @@
             this.btn_ShowMauSac.TabIndex = 3;
             this.btn_ShowMauSac.Text = "Hiện Thị";
             this.btn_ShowMauSac.UseVisualStyleBackColor = true;
+            this.btn_ShowMauSac.Click += new System.EventHandler(this.btn_ShowMauSac_Click);
             // 
             // btn_MauSac_Them
             // 
@@ -161,6 +191,7 @@
             this.btn_MauSac_Them.TabIndex = 2;
             this.btn_MauSac_Them.Text = "Thêm ";
             this.btn_MauSac_Them.UseVisualStyleBackColor = true;
+            this.btn_MauSac_Them.Click += new System.EventHandler(this.btn_MauSac_Them_Click);
             // 
             // groupBox3
             // 
@@ -169,9 +200,9 @@
             this.groupBox3.Controls.Add(this.tb_maMauSac);
             this.groupBox3.Controls.Add(this.tb_TenMauSac);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(6, 361);
+            this.groupBox3.Location = new System.Drawing.Point(12, 468);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(547, 275);
+            this.groupBox3.Size = new System.Drawing.Size(547, 256);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Nhập";
@@ -212,7 +243,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1188, 668);
+            this.ClientSize = new System.Drawing.Size(1188, 757);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -224,6 +255,7 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_MauSac_Show)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -247,5 +279,7 @@
         private Label label2;
         private TextBox tb_maMauSac;
         private TextBox tb_TenMauSac;
+        private Label label1;
+        private TextBox tb_MauSac_TimKiem;
     }
 }

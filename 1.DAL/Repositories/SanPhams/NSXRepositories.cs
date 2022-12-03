@@ -32,14 +32,10 @@ namespace _1.DAL.Repositories.SanPhams
             return true;
         }
 
-        public Nsx getmaid(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Nsx> GetNSXs()
         {
-            return _Context.Nsxes.ToList();
+            _Nsxlist =  _Context.Nsxes.ToList();
+            return _Nsxlist;
         }
 
         public bool update(Nsx obj)

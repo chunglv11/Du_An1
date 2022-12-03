@@ -18,33 +18,38 @@ namespace _1.DAL.Repositories.SanPhams
             _Context = new QLBH_Context();
             _ChiTietSplist = new List<ChiTietSp>();
         }
-        public bool add(ChiTietSp obj)
+        public bool addChiTietSP(ChiTietSp chiTietSP)
         {
-            _Context.chiTietSps.Add(obj);
+            _Context.chiTietSps.Add(chiTietSP);
+            _Context.SaveChanges();
+            return _Context.SaveChanges() > 0;
+        }
+        public bool deleteChiTietSP(ChiTietSp chiTietSP)
+        {
+            _Context.chiTietSps.Remove(chiTietSP);
             _Context.SaveChanges();
             return true;
         }
-
-        public bool delete(ChiTietSp obj)
+        public List<ChiTietSp> GetChiTietSP()
         {
-            _Context.chiTietSps.Remove(obj);
-            _Context.SaveChanges();
-            return true;
+            _ChiTietSplist = _Context.chiTietSps.ToList();
+            return _ChiTietSplist;
         }
-
-        public List<ChiTietSp> GetChiTietSps()
+        public bool updateChiTietSP(ChiTietSp chiTietSP)
         {
-            return _Context.chiTietSps.ToList();
-        }
-
-        public ChiTietSp getmaid(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool update(ChiTietSp obj)
-        {
-            _Context.chiTietSps.Update(obj);
+            ChiTietSp id = _Context.chiTietSps.Find(chiTietSP.Id);
+            id.Anh = chiTietSP.Anh;
+            id.MoTa = chiTietSP.MoTa;
+            id.SoLuongTon= chiTietSP.SoLuongTon;
+            id.GiaBan = chiTietSP.GiaBan;
+            id.GiaNhap = chiTietSP.GiaNhap;
+            id.TinhTrang = chiTietSP.TinhTrang;
+            id.IdSp = chiTietSP.IdSp;
+            id.IdDongSp = chiTietSP.IdDongSp;
+            id.IdKichCo = chiTietSP.IdKichCo;
+            id.IdMauSac = chiTietSP.IdMauSac;
+            id.IdNsx = chiTietSP.IdNsx;
+            _Context.chiTietSps.Update(id);
             _Context.SaveChanges();
             return true;
         }

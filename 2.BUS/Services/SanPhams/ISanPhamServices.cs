@@ -9,14 +9,13 @@ namespace _2.BUS.Services.SanPhams
 {
     public interface ISanPhamServices
     {
-        bool add(SanPham obj);
+        string add(SanPham obj);
 
-        bool delete(SanPham obj);
+        string delete(SanPham obj);
 
-        bool update(SanPham obj);
+        string update(SanPham obj);
 
-        SanPham getmaid(Guid id);
-
-        List<SanPham> GetSanPhams();
+        List<SanPham> GetAll();
+        List<SanPham> GetAll(string input);
     }
 }

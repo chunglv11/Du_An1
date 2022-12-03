@@ -14,9 +14,6 @@ namespace _1.DAL.Repositories.SanPhams
         bool delete(KichCo obj);
 
         bool update(KichCo obj);
-
-        KichCo getmaid(Guid id);
-
         List<KichCo> GetKichCos();
     }
 }

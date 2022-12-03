@@ -20,6 +20,8 @@ namespace _1.DAL.Repositories.SanPhams
         }
         public bool add(SanPham obj)
         {
+            if (obj == null) return false;
+            obj.Id = Guid.NewGuid();
             _Context.sanPhams.Add(obj);
             _Context.SaveChanges();
             return true;
@@ -27,23 +29,24 @@ namespace _1.DAL.Repositories.SanPhams
 
         public bool delete(SanPham obj)
         {
+            if (obj == null) return false;
+            var tempoj = _Context.sanPhams.FirstOrDefault(c => c.Id == obj.Id);
             _Context.sanPhams.Remove(obj);
             _Context.SaveChanges();
             return true;
         }
 
-        public SanPham getmaid(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<SanPham> GetSanPhams()
+        public List<SanPham> GetAll()
         {
             return _Context.sanPhams.ToList();
         }
 
         public bool update(SanPham obj)
         {
+            if (obj == null) return false;
+            var tempoj = _Context.sanPhams.FirstOrDefault(c => c.Id == obj.Id);
+            tempoj.TenSp = obj.TenSp;
+            tempoj.MaSp = obj.MaSp;
             _Context.sanPhams.Update(obj);
             _Context.SaveChanges();
             return true;

@@ -11,39 +11,38 @@ namespace _2.BUS.Services.SanPhams
     public class MauSacServices : IMauSacServices
     {
         IMauSacRepositories _IMauSacRepos;
-        List<MauSac> _ListMauSac;
 
         public MauSacServices()
         {
             _IMauSacRepos = new MauSacRepositories();
-            _ListMauSac = new List<MauSac>();
         }
-        public bool add(MauSac obj)
+        public bool Add(MauSac obj)
         {
-            _IMauSacRepos.add(obj);
+            _IMauSacRepos.Add(obj);
             return true;
         }
-
-        public bool delete(MauSac obj)
+        public List<MauSac> GetAll(string input)
         {
-            _IMauSacRepos.delete(obj);
+            if (string.IsNullOrEmpty(input))
+            {
+                return GetAll();
+            }
+            return _IMauSacRepos.GetAll().Where(c => c.TenMs.ToLower().Contains(input.ToLower()) || c.MaMs.ToLower().Contains(input.ToLower())).ToList();
+        }
+
+        public List<MauSac> GetAll()
+        {
+            return _IMauSacRepos.GetAll();
+        }
+
+        public bool Remove(MauSac obj)
+        {
+            _IMauSacRepos.Remove(obj);
             return true;
         }
-
-        public MauSac getmaid(Guid id)
+        public bool Update(MauSac obj)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<MauSac> GetMauSac()
-        {
-            _ListMauSac = _IMauSacRepos.GetMauSacs();
-            return _ListMauSac;
-        }
-
-        public bool update(MauSac obj)
-        {
-            _IMauSacRepos.update(obj);
+            _IMauSacRepos.Update(obj);
             return true;
         }
     }

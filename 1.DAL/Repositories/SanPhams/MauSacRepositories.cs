@@ -18,35 +18,33 @@ namespace _1.DAL.Repositories.SanPhams
             _Context = new QLBH_Context();
             _MauSaclist = new List<MauSac>();
         }
-        public bool add(MauSac obj)
+        public bool Add(MauSac obj)
         {
             _Context.mauSacs.Add(obj);
             _Context.SaveChanges();
             return true;
         }
-
-        public bool delete(MauSac obj)
+        public string Check(string input)
+        {
+            throw new NotImplementedException();
+        }
+        public List<MauSac> GetAll()
+        {
+            _MauSaclist = _Context.mauSacs.ToList();
+            return _MauSaclist;
+        }
+        public bool Remove(MauSac obj)
         {
             _Context.mauSacs.Remove(obj);
             _Context.SaveChanges();
             return true;
         }
-
-        public MauSac getmaid(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<MauSac> GetMauSacs()
-        {
-            return _Context.mauSacs.ToList();
-        }
-
-        public bool update(MauSac obj)
+        public bool Update(MauSac obj)
         {
             _Context.mauSacs.Update(obj);
             _Context.SaveChanges();
             return true;
         }
     }
+    
 }

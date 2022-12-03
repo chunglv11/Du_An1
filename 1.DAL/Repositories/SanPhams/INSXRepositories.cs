@@ -15,8 +15,6 @@ namespace _1.DAL.Repositories.SanPhams
 
         bool update(Nsx obj);
 
-        Nsx getmaid(Guid id);
-
         List<Nsx> GetNSXs();
     }
 }

@@ -43,6 +43,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tb_maSanPham = new System.Windows.Forms.TextBox();
             this.tb_TenSanPham = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tb_SanPham_TimKiem = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_SanPham_Show)).BeginInit();
@@ -93,9 +95,12 @@
             this.dtg_SanPham_Show.RowTemplate.Height = 29;
             this.dtg_SanPham_Show.Size = new System.Drawing.Size(572, 397);
             this.dtg_SanPham_Show.TabIndex = 17;
+            this.dtg_SanPham_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_SanPham_Show_CellClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.tb_SanPham_TimKiem);
             this.groupBox1.Controls.Add(this.btn_SanPham_Xoa);
             this.groupBox1.Controls.Add(this.btn_SanPham_Back);
             this.groupBox1.Controls.Add(this.btn_SanPham_Sua);
@@ -104,7 +109,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(2, 148);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(551, 197);
+            this.groupBox1.Size = new System.Drawing.Size(551, 266);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chức Năng";
@@ -112,12 +117,13 @@
             // btn_SanPham_Xoa
             // 
             this.btn_SanPham_Xoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
-            this.btn_SanPham_Xoa.Location = new System.Drawing.Point(190, 46);
+            this.btn_SanPham_Xoa.Location = new System.Drawing.Point(369, 42);
             this.btn_SanPham_Xoa.Name = "btn_SanPham_Xoa";
             this.btn_SanPham_Xoa.Size = new System.Drawing.Size(149, 45);
             this.btn_SanPham_Xoa.TabIndex = 26;
             this.btn_SanPham_Xoa.Text = "Xóa";
             this.btn_SanPham_Xoa.UseVisualStyleBackColor = true;
+            this.btn_SanPham_Xoa.Click += new System.EventHandler(this.btn_SanPham_Xoa_Click);
             // 
             // btn_SanPham_Back
             // 
@@ -129,16 +135,18 @@
             this.btn_SanPham_Back.TabIndex = 0;
             this.btn_SanPham_Back.Text = "Back";
             this.btn_SanPham_Back.UseVisualStyleBackColor = true;
+            this.btn_SanPham_Back.Click += new System.EventHandler(this.btn_SanPham_Back_Click);
             // 
             // btn_SanPham_Sua
             // 
             this.btn_SanPham_Sua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
-            this.btn_SanPham_Sua.Location = new System.Drawing.Point(369, 46);
+            this.btn_SanPham_Sua.Location = new System.Drawing.Point(186, 42);
             this.btn_SanPham_Sua.Name = "btn_SanPham_Sua";
             this.btn_SanPham_Sua.Size = new System.Drawing.Size(146, 45);
             this.btn_SanPham_Sua.TabIndex = 25;
             this.btn_SanPham_Sua.Text = "Sửa";
             this.btn_SanPham_Sua.UseVisualStyleBackColor = true;
+            this.btn_SanPham_Sua.Click += new System.EventHandler(this.btn_SanPham_Sua_Click);
             // 
             // btn_ShowSanPham
             // 
@@ -150,6 +158,7 @@
             this.btn_ShowSanPham.TabIndex = 3;
             this.btn_ShowSanPham.Text = "Hiện Thị";
             this.btn_ShowSanPham.UseVisualStyleBackColor = true;
+            this.btn_ShowSanPham.Click += new System.EventHandler(this.btn_ShowSanPham_Click);
             // 
             // btn_SanPham_Them
             // 
@@ -161,6 +170,7 @@
             this.btn_SanPham_Them.TabIndex = 2;
             this.btn_SanPham_Them.Text = "Thêm ";
             this.btn_SanPham_Them.UseVisualStyleBackColor = true;
+            this.btn_SanPham_Them.Click += new System.EventHandler(this.btn_SanPham_Them_Click);
             // 
             // groupBox3
             // 
@@ -169,9 +179,9 @@
             this.groupBox3.Controls.Add(this.tb_maSanPham);
             this.groupBox3.Controls.Add(this.tb_TenSanPham);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(8, 362);
+            this.groupBox3.Location = new System.Drawing.Point(0, 420);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(545, 271);
+            this.groupBox3.Size = new System.Drawing.Size(553, 271);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Nhập";
@@ -208,11 +218,32 @@
             this.tb_TenSanPham.Size = new System.Drawing.Size(496, 34);
             this.tb_TenSanPham.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
+            this.label1.Location = new System.Drawing.Point(218, 170);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 23);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "Tìm kiếm :";
+            // 
+            // tb_SanPham_TimKiem
+            // 
+            this.tb_SanPham_TimKiem.Location = new System.Drawing.Point(21, 213);
+            this.tb_SanPham_TimKiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tb_SanPham_TimKiem.Name = "tb_SanPham_TimKiem";
+            this.tb_SanPham_TimKiem.Size = new System.Drawing.Size(503, 38);
+            this.tb_SanPham_TimKiem.TabIndex = 55;
+            this.tb_SanPham_TimKiem.TextChanged += new System.EventHandler(this.tb_SanPham_TimKiem_TextChanged);
+            // 
             // FrmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 658);
+            this.ClientSize = new System.Drawing.Size(1182, 699);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -224,6 +255,7 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_SanPham_Show)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -247,5 +279,7 @@
         private Label label2;
         private TextBox tb_maSanPham;
         private TextBox tb_TenSanPham;
+        private Label label1;
+        private TextBox tb_SanPham_TimKiem;
     }
 }

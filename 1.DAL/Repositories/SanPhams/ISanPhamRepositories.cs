@@ -15,8 +15,6 @@ namespace _1.DAL.Repositories.SanPhams
 
         bool update(SanPham obj);
 
-        SanPham getmaid(Guid id);
-
-        List<SanPham> GetSanPhams();
+        List<SanPham> GetAll();
     }
 }

@@ -36,10 +36,6 @@ namespace _2.BUS.Services.SanPhams
             return _ListKichCo;
         }
 
-        public KichCo getmaid(Guid id)
-        {
-            throw new NotImplementedException();
-        }
 
         public bool update(KichCo obj)
         {

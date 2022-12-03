@@ -15,8 +15,6 @@ namespace _2.BUS.Services.SanPhams
 
         bool update(Nsx obj);
 
-        Nsx getmaid(Guid id);
-
         List<Nsx> GetNsx();
     }
 }

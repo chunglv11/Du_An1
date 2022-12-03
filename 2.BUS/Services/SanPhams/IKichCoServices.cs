@@ -15,8 +15,6 @@ namespace _2.BUS.Services.SanPhams
 
         bool update(KichCo obj);
 
-        KichCo getmaid(Guid id);
-
         List<KichCo> GetKichCo();
     }
 }

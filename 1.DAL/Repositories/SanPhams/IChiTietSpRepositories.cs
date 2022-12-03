@@ -9,14 +9,9 @@ namespace _1.DAL.Repositories.SanPhams
 {
     public interface IChiTietSpRepositories
     {
-        bool add(ChiTietSp obj);
-
-        bool delete(ChiTietSp obj);
-
-        bool update(ChiTietSp obj);
-
-        ChiTietSp getmaid(Guid id);
-
-        List<ChiTietSp> GetChiTietSps();
+        bool addChiTietSP(ChiTietSp chiTietSP);
+        bool updateChiTietSP(ChiTietSp chiTietSP);
+        bool deleteChiTietSP(ChiTietSp chiTietSP);
+        List<ChiTietSp> GetChiTietSP();
     }
 }
