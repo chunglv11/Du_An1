@@ -12,13 +12,8 @@ using _1.DAL.Context;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(QLBH_Context))]
-<<<<<<< HEAD:1.DAL/Migrations/20221203072307_123.Designer.cs
-    [Migration("20221203072307_123")]
-    partial class _123
-=======
-    [Migration("20221203072411__QLBH")]
+    [Migration("20221203153008__QLBH")]
     partial class _QLBH
->>>>>>> update 3/12/2022:1.DAL/Migrations/20221203072411__QLBH.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,11 +32,7 @@ namespace _1.DAL.Migrations
                         .HasDefaultValueSql("newid()");
 
                     b.Property<string>("Anh")
-<<<<<<< HEAD:1.DAL/Migrations/20221203072307_123.Designer.cs
-                        .HasColumnType("nvarchar(max)");
-=======
                         .HasColumnType("nvarchar(300)");
->>>>>>> update 3/12/2022:1.DAL/Migrations/20221203072411__QLBH.Designer.cs
 
                     b.Property<decimal>("GiaBan")
                         .HasColumnType("decimal(9,3)");

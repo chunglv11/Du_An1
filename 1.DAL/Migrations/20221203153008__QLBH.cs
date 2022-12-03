@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _1.DAL.Migrations
 {
-    public partial class _123 : Migration
+    public partial class _QLBH : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -165,11 +165,7 @@ namespace _1.DAL.Migrations
                     IdKichCo = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MoTa = table.Column<string>(type: "nvarchar(300)", nullable: false),
                     SoLuongTon = table.Column<int>(type: "int", nullable: false),
-<<<<<<< HEAD:1.DAL/Migrations/20221203072307_123.cs
-                    Anh = table.Column<string>(type: "nvarchar(max)", nullable: true),
-=======
                     Anh = table.Column<string>(type: "nvarchar(300)", nullable: true),
->>>>>>> update 3/12/2022:1.DAL/Migrations/20221203072411__QLBH.cs
                     GiaNhap = table.Column<decimal>(type: "decimal(9,3)", nullable: false),
                     GiaBan = table.Column<decimal>(type: "decimal(9,3)", nullable: false),
                     TinhTrang = table.Column<int>(type: "int", nullable: false)
