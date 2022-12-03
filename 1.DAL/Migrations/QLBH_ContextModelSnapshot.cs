@@ -30,7 +30,11 @@ namespace _1.DAL.Migrations
                         .HasDefaultValueSql("newid()");
 
                     b.Property<string>("Anh")
+<<<<<<< HEAD
                         .HasColumnType("nvarchar(max)");
+=======
+                        .HasColumnType("nvarchar(300)");
+>>>>>>> update 3/12/2022
 
                     b.Property<decimal>("GiaBan")
                         .HasColumnType("decimal(9,3)");

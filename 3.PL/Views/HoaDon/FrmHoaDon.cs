@@ -8,15 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _3.PL.Views.BanHang
+namespace _3.PL.Views.HoaDon
 {
-    public partial class FrmBanHang : Form
+    public partial class FrmHoaDon : Form
     {
-        public FrmBanHang()
+        public FrmHoaDon()
         {
             InitializeComponent();
         }
-
-        
     }
 }

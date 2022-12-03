@@ -23,6 +23,10 @@ namespace _1.DAL.Configurations
             builder.Property(c => c.IdKichCo).IsRequired();
             builder.Property(c => c.MoTa).HasColumnType("nvarchar(300)").IsRequired();
             builder.Property(c => c.SoLuongTon).HasColumnType("int").IsRequired();
+<<<<<<< HEAD
+=======
+            builder.Property(c => c.Anh).HasColumnType("nvarchar(300)");
+>>>>>>> update 3/12/2022
             builder.Property(c => c.GiaNhap).HasColumnType("decimal(9,3)").IsRequired();
             builder.Property(c => c.GiaBan).HasColumnType("decimal(9,3)").IsRequired();
             builder.Property(c => c.TinhTrang).HasColumnType("int").IsRequired();
