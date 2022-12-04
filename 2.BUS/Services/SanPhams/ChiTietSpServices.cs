@@ -103,7 +103,8 @@ namespace _2.BUS.Services.SanPhams
             x.IdSp = chiTietSP.IdSp;
             x.IdDongSp = chiTietSP.IdDongSp;
             x.IdKichCo = chiTietSP.IdKichCo;
-            x.IdMauSac = chiTietSP.IdNsx;
+            x.IdMauSac = chiTietSP.IdMauSac;
+            x.IdNsx = chiTietSP.IdNsx;
             x.MoTa = chiTietSP.MoTa;
             x.SoLuongTon = chiTietSP.SoLuongTon;
             x.Anh = chiTietSP.Anh;

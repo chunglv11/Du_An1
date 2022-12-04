@@ -39,7 +39,7 @@
             this.btn_ChiTietSP_Them = new System.Windows.Forms.Button();
             this.btn_ChiTietSP_Xoa = new System.Windows.Forms.Button();
             this.btn_ChiTietSP_Sua = new System.Windows.Forms.Button();
-            this.tb_SanPham_TimKiem = new System.Windows.Forms.TextBox();
+            this.tb_ChiTietSP_TimKiem = new System.Windows.Forms.TextBox();
             this.btn_ShowChiTietSP = new System.Windows.Forms.Button();
             this.btn_ChiTietSP_Back = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -164,7 +164,7 @@
             this.panel7.Controls.Add(this.btn_ChiTietSP_Them);
             this.panel7.Controls.Add(this.btn_ChiTietSP_Xoa);
             this.panel7.Controls.Add(this.btn_ChiTietSP_Sua);
-            this.panel7.Controls.Add(this.tb_SanPham_TimKiem);
+            this.panel7.Controls.Add(this.tb_ChiTietSP_TimKiem);
             this.panel7.Controls.Add(this.btn_ShowChiTietSP);
             this.panel7.Controls.Add(this.btn_ChiTietSP_Back);
             this.panel7.ForeColor = System.Drawing.SystemColors.Control;
@@ -222,16 +222,16 @@
             this.btn_ChiTietSP_Sua.UseVisualStyleBackColor = true;
             this.btn_ChiTietSP_Sua.Click += new System.EventHandler(this.btn_ChiTietSP_Sua_Click);
             // 
-            // tb_SanPham_TimKiem
+            // tb_ChiTietSP_TimKiem
             // 
-            this.tb_SanPham_TimKiem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tb_SanPham_TimKiem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
-            this.tb_SanPham_TimKiem.Location = new System.Drawing.Point(3, 424);
-            this.tb_SanPham_TimKiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tb_SanPham_TimKiem.Name = "tb_SanPham_TimKiem";
-            this.tb_SanPham_TimKiem.PlaceholderText = "Tìm Kiếm ...";
-            this.tb_SanPham_TimKiem.Size = new System.Drawing.Size(320, 27);
-            this.tb_SanPham_TimKiem.TabIndex = 68;
+            this.tb_ChiTietSP_TimKiem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tb_ChiTietSP_TimKiem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
+            this.tb_ChiTietSP_TimKiem.Location = new System.Drawing.Point(3, 424);
+            this.tb_ChiTietSP_TimKiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tb_ChiTietSP_TimKiem.Name = "tb_ChiTietSP_TimKiem";
+            this.tb_ChiTietSP_TimKiem.PlaceholderText = "Tìm Kiếm ...";
+            this.tb_ChiTietSP_TimKiem.Size = new System.Drawing.Size(320, 27);
+            this.tb_ChiTietSP_TimKiem.TabIndex = 68;
             // 
             // btn_ShowChiTietSP
             // 
@@ -726,7 +726,7 @@
         private Button btn_ChiTietSP_Sua;
         private Button btn_ShowChiTietSP;
         private Button btn_ChiTietSP_Back;
-        private TextBox tb_SanPham_TimKiem;
+        private TextBox tb_ChiTietSP_TimKiem;
         private FlowLayoutPanel flowLayoutPanel6;
         private GroupBox groupBox3;
         private Panel panel1;

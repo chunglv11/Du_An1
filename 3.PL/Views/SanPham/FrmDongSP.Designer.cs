@@ -1,4 +1,4 @@
-﻿namespace _3.PL.SanPham
+﻿namespace _3.PL.Views.SanPham
 {
     partial class FrmDongSP
     {

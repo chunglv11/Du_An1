@@ -42,7 +42,7 @@ namespace _2.BUS.Services.HoaDons
         public List<HoaDon> GetHoaDon()
         {
             _lstHoaDon = (from a in _ihoaDonRepositories.GetHoaDonFromDb()
-                          join b in _ikhachHangRepositories.GetKhachHangKhFromDb() on a.IdKh equals b.Id
+                        //  join b in _ikhachHangRepositories.GetKhachHangKhFromDb() on a.IdKh equals b.Id
                           join c in _inhanVienRepositories.GetAllNvFromDb() on a.IdNv equals c.Id
                           select new HoaDon
                           {

@@ -1,4 +1,4 @@
-﻿namespace _3.PL
+﻿namespace _3.PL.Views.SanPham
 {
     partial class FrmSanPham
     {

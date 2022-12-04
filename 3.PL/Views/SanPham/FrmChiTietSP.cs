@@ -90,17 +90,17 @@ namespace _3.PL.Views.SanPham
             dtg_Show_ChiTietSP.Columns[4].Name = "Kích Cỡ";
             dtg_Show_ChiTietSP.Columns[5].Name = "Màu Sắc";
             dtg_Show_ChiTietSP.Columns[6].Name = "Nhà Sản Xuất";
-            dtg_Show_ChiTietSP.Columns[7].Name = "Mô Tả";
-            dtg_Show_ChiTietSP.Columns[8].Name = "Số Lượng Tồn";
-            dtg_Show_ChiTietSP.Columns[9].Name = "Gía Nhập";
-            dtg_Show_ChiTietSP.Columns[10].Name = "Gía Bán";
+            dtg_Show_ChiTietSP.Columns[7].Name = "Số Lượng Tồn";
+            dtg_Show_ChiTietSP.Columns[8].Name = "Gía Nhập";
+            dtg_Show_ChiTietSP.Columns[9].Name = "Gía Bán";
+            dtg_Show_ChiTietSP.Columns[10].Name = "Mô Tả";
             dtg_Show_ChiTietSP.Columns[11].Name = "Trạng thái";
             dtg_Show_ChiTietSP.Rows.Clear();
             _lstviewChiTietSPs = _IChiTietSpSV.GetViewChiTietSps();
-            //if (tbt_TimKiem_ChiTietSP.Text != ""  && !string.IsNullOrEmpty(tbt_TimKiem_ChiTietSP.Text))
-            //{
-            //    _lstviewChiTietSPs = _lstviewChiTietSPs.Where(p => p.TenSanPham.Contains(tbt_TimKiem_ChiTietSP.Text) || p.tenDongSp.Contains(tbt_TimKiem_ChiTietSP.Text) || p.tenKichCo.Contains(tbt_TimKiem_ChiTietSP.Text) || p.tenMauSac.Contains(tbt_TimKiem_ChiTietSP.Text) || p.TenNsx.Contains(tbt_TimKiem_ChiTietSP.Text)).ToList();
-            //}
+            if (tbt_TimKiem_ChiTietSP.Text != "" && !string.IsNullOrEmpty(tbt_TimKiem_ChiTietSP.Text))
+            {
+                _lstviewChiTietSPs = _lstviewChiTietSPs.Where(p => p.TenSanPham.Contains(tb_ChiTietSP_TimKiem.Text) || p.tenDongSp.Contains(tb_ChiTietSP_TimKiem.Text) || p.tenKichCo.Contains(tb_ChiTietSP_TimKiem.Text) || p.tenMauSac.Contains(tb_ChiTietSP_TimKiem.Text) || p.TenNsx.Contains(tb_ChiTietSP_TimKiem.Text)).ToList();
+            }
             foreach (var x in _lstviewChiTietSPs)
             {
                 dtg_Show_ChiTietSP.Rows.Add(stt++, x.Id, x.TenSanPham, x.tenDongSp, x.tenKichCo, x.tenMauSac, x.TenNsx, x.SoLuongTon, x.GiaNhap, x.GiaBan, x.MoTa, x.TinhTrang);

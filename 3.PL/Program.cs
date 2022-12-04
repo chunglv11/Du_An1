@@ -8,7 +8,8 @@ using System.Windows.Forms;
 using _3.PL.Views.DangNhap;
 using _3.PL.Views.NhanVien;
 using _3.PL.Views.BanHang;
-using _3.PL.SanPham;
+using _3.PL.Views.ChucVu;
+using _3.PL.Views.SanPham;
 
 namespace _3.PL
 {
@@ -25,7 +26,7 @@ namespace _3.PL
             ApplicationConfiguration.Initialize();
 
 
-           // Application.Run(new FrmBanHang());
+            Application.Run(new FrmChiTietSP());
 
 
 

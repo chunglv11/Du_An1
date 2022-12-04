@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _3.PL
+namespace _3.PL.Views.SanPham
 {
     public partial class FrmSanPham : Form
     {
