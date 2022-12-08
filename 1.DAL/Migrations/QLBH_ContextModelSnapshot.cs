@@ -311,6 +311,10 @@ namespace _1.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<int>("GioiTinh")
                         .HasColumnType("int");
 

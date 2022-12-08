@@ -132,6 +132,7 @@ namespace _1.DAL.Migrations
                     DiaChi = table.Column<string>(type: "nvarchar(200)", nullable: false),
                     CCCD = table.Column<string>(type: "nvarchar(20)", nullable: false),
                     Sdt = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     MatKhau = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     Anh = table.Column<string>(type: "nvarchar(300)", nullable: false),
                     TrangThai = table.Column<int>(type: "int", nullable: false)
