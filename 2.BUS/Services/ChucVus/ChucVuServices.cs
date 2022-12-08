@@ -10,30 +10,38 @@ namespace _2.BUS.Services.ChucVus
 {
     public class ChucVuServices : IChucVuServices
     {
-        IChucVuRepositories _IChucVuRepos;
-        List<ChucVu> _ListChucVu;
+        IChucVuRepositories _iChucVuRepos;
+        List<ChucVu> _lstChucVu;
         public ChucVuServices()
         {
-            _IChucVuRepos = new ChucVuRepositories();
-            _ListChucVu= new List<ChucVu>();
+            _iChucVuRepos = new ChucVuRepositories();
+            _lstChucVu= new List<ChucVu>();
         }
 
-        public bool add(ChucVu obj)
+        public bool AddCV(ChucVu obj)
         {
-            _IChucVuRepos.add(obj);
+            if (obj == null)
+            {
+                return false;
+            }
+            _iChucVuRepos.AddCv(obj);
             return true;
         }
 
-        public bool delete(ChucVu obj)
+        public bool DeleteCV(ChucVu obj)
         {
-            _IChucVuRepos.delete(obj);
+            if (obj == null)
+            {
+                return false;
+            }
+            _iChucVuRepos.DeleteCv(obj);
             return true;
         }
 
-        public List<ChucVu> GetChucVus()
+        public List<ChucVu> GetAllChucVu()
         {
-            _ListChucVu = _IChucVuRepos.GetChucVus();
-            return _ListChucVu;
+            _lstChucVu = _iChucVuRepos.GetChucVuFromDb().ToList();
+            return _lstChucVu;
         }
 
         public ChucVu getmaid(Guid id)
@@ -41,9 +49,13 @@ namespace _2.BUS.Services.ChucVus
             throw new NotImplementedException();
         }
 
-        public bool update(ChucVu obj)
+        public bool UpdateCV(ChucVu obj)
         {
-            _IChucVuRepos.update(obj);
+            if (obj == null)
+            {
+                return false;
+            }
+            _iChucVuRepos.UpdateCv(obj);
             return true;
         }
     }

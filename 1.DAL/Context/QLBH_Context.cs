@@ -23,7 +23,7 @@ namespace _1.DAL.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Data Source=NGUYENQUANGDUNG\SQLEXPRESS;Initial Catalog=DuAn_1;Persist Security Info=True;User ID=lala;Password=123");
+                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-AKSDRER\MOMO;Initial Catalog=Du_AN1;Persist Security Info=True;User ID=sa1;Password=123");
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

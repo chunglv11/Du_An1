@@ -9,14 +9,14 @@ namespace _1.DAL.Repositories.ChucVus
 {
     public interface IChucVuRepositories
     {
-        bool add(ChucVu obj);
+        bool AddCv(ChucVu obj);
 
-        bool delete(ChucVu obj);
+        bool DeleteCv(ChucVu obj);
 
-        bool update(ChucVu obj);
+        bool UpdateCv(ChucVu obj);
 
         ChucVu getmaid(Guid id);
 
-        List<ChucVu> GetChucVus();
+        List<ChucVu> GetChucVuFromDb();
     }
 }

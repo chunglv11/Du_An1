@@ -33,7 +33,16 @@ namespace _1.DAL.Repositories.HoaDons
 
         public bool DeleteHdCTFromDb(HoaDonChiTiet obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Remove(obj);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         public HoaDonChiTiet GetHoaDonCTById(Guid id)
@@ -43,12 +52,22 @@ namespace _1.DAL.Repositories.HoaDons
 
         public List<HoaDonChiTiet> GetHoaDonCTFromDb()
         {
-            throw new NotImplementedException();
+            _lstHDCT = _context.hoaDonChiTiets.ToList();
+            return _lstHDCT;
         }
 
         public bool UpdateHdCTFromDb(HoaDonChiTiet obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Update(obj);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }

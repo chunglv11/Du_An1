@@ -12,30 +12,47 @@ namespace _1.DAL.Repositories.ChucVus
     public class ChucVuRepositories : IChucVuRepositories
     {
         QLBH_Context _Context;
-        List<ChucVu> _ChucVuList;
+        List<ChucVu> _lstChucVu;
         public ChucVuRepositories()
         {
             _Context = new QLBH_Context();
-            _ChucVuList = new List<ChucVu>();  
+            _lstChucVu = new List<ChucVu>();  
         }
 
-        public bool add(ChucVu obj)
+        public bool AddCv(ChucVu obj)
         {
-            _Context.chucVus.Add(obj);
-            _Context.SaveChanges();
-            return true;
+            try
+            {
+                _Context.Add(obj);
+                _Context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
         }
 
-        public bool delete(ChucVu obj)
+        public bool DeleteCv(ChucVu obj)
         {
-            _Context.chucVus.Remove(obj);
-            _Context.SaveChanges();
-            return true;
+            try
+            {
+                _Context.Remove(obj);
+                _Context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
         }
 
-        public List<ChucVu> GetChucVus()
+        public List<ChucVu> GetChucVuFromDb()
         {
-            return _Context.chucVus.ToList();
+            _lstChucVu = _Context.chucVus.ToList();
+            return _lstChucVu;
         }
 
         public ChucVu getmaid(Guid id)
@@ -43,11 +60,22 @@ namespace _1.DAL.Repositories.ChucVus
             throw new NotImplementedException();
         }
 
-        public bool update(ChucVu obj)
+        public bool UpdateCv(ChucVu obj)
         {
-            _Context.chucVus.Update(obj);
-            _Context.SaveChanges();
-            return true;
+            try
+            {
+                ChucVu cv = _Context.chucVus.Find(obj.Id);
+                cv.MaCV = obj.MaCV;
+                cv.TenCV = obj.TenCV;
+                _Context.Update(cv);
+                _Context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
         }
     }
 }

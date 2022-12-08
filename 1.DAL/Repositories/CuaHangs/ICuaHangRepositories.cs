@@ -9,6 +9,12 @@ namespace _1.DAL.Repositories.CuaHangs
 {
     public interface ICuaHangRepositories
     {
+        bool AddChFromDb(CuaHang obj);
 
+        bool DeleteChFromDb(CuaHang obj);
+
+        bool UpdateChFromDb(CuaHang obj);
+
+        List<CuaHang> GetCuaHangFromDb();
     }
 }

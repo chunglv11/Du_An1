@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,7 +62,21 @@ namespace _1.DAL.Repositories.HoaDons
         {
             try
             {
-                _context.Update(obj);
+                HoaDon hoaDon = _context.hoaDons.Find(obj.Id);
+                hoaDon.IdKh = obj.IdKh;
+                hoaDon.IdNv = obj.IdNv;
+                hoaDon.MaHD = obj.MaHD;
+                hoaDon.NgayTao = obj.NgayTao;
+                hoaDon.NgayThanhToan = obj.NgayThanhToan;
+                hoaDon.NgayShip = obj.NgayShip;
+                hoaDon.TenNguoiShip = obj.TenNguoiShip;
+                hoaDon.NgayNhan = obj.NgayNhan;
+                hoaDon.TenNguoiNhan = obj.TenNguoiNhan;
+                hoaDon.Sdt = obj.Sdt;
+                hoaDon.DiaChi = obj.DiaChi;
+                hoaDon.TongTien = obj.TongTien;
+                hoaDon.TinhTrang = obj.TinhTrang;
+                _context.Update(hoaDon);
                 _context.SaveChanges();
                 return true;
             }
