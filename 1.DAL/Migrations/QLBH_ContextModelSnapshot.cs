@@ -333,7 +333,6 @@ namespace _1.DAL.Migrations
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("MatKhau")
-                        .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("NgaySinh")

@@ -27,7 +27,7 @@ namespace _1.DAL.Configurations
             builder.Property(c => c.Sdt).HasColumnType("nvarchar(20)").IsRequired();
             builder.Property(c => c.Anh).HasColumnType("nvarchar(300)").IsRequired();
             builder.Property(c => c.Email).HasColumnType("nvarchar(100)").IsRequired();
-            builder.Property(c => c.MatKhau).HasColumnType("nvarchar(50)").IsRequired();
+            builder.Property(c => c.MatKhau).HasColumnType("nvarchar(50)");
             builder.Property(c => c.TrangThai).HasColumnType("int").IsRequired();
             builder.HasOne(x => x.CuaHang).WithMany().HasForeignKey(p => p.IdCh);
             builder.HasOne(x => x.ChucVu).WithMany().HasForeignKey(p => p.IdCv);

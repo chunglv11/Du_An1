@@ -10,29 +10,85 @@ namespace _1.DAL.Repositories.NhanViens
 {
     public class NhanVienRepositories : INhanVienRepositories
     {
+        private QLBH_Context _context;
+        private List<NhanVien> _lstNhanVien;
+        public NhanVienRepositories()
+        {
+            _context = new QLBH_Context();
+            _lstNhanVien = new List<NhanVien>();
+        }
         public bool AddNvFromDb(NhanVien obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Add(obj);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         public bool DeleteNvFromDb(NhanVien obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Remove(obj);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         public List<NhanVien> GetAllNvFromDb()
         {
-            throw new NotImplementedException();
+            _lstNhanVien = _context.nhanViens.ToList();
+            return _lstNhanVien;
         }
 
         public NhanVien GetByNameEmail(string email)
         {
-            throw new NotImplementedException();
+            if (email == String.Empty)
+            {
+                return null;
+            }
+            else
+            {
+                return _context.nhanViens.FirstOrDefault(c => c.Email == email);
+            }
         }
 
         public bool UpdateNvFromDb(NhanVien obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                NhanVien nv = _context.nhanViens.Find(obj.Id);
+                nv.IdCh = obj.IdCh;
+                nv.IdCv = obj.IdCv;
+                nv.MaNv = obj.MaNv;
+                nv.HoTenNv = obj.HoTenNv;
+                nv.GioiTinh = obj.GioiTinh;
+                nv.NgaySinh = obj.NgaySinh;
+                nv.DiaChi = obj.DiaChi;
+                nv.CCCD = obj.CCCD;
+                nv.Sdt = obj.Sdt;
+                nv.Email = obj.Email;
+                nv.MatKhau = obj.MatKhau;
+                nv.Anh = obj.Anh;
+                nv.TrangThai = obj.TrangThai;
+                _context.Update(obj);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }
