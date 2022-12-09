@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using _1.DAL.Entities;
 using _1.DAL.Context;
+using _1.DAL.Ultilities.Password;
 
 namespace _1.DAL.Repositories.NhanViens
 {
@@ -21,6 +22,7 @@ namespace _1.DAL.Repositories.NhanViens
         {
             try
             {
+                obj.MatKhau = CreatePassword.CreateRandomPassword(6);
                 _context.Add(obj);
                 _context.SaveChanges();
                 return true;
@@ -81,7 +83,7 @@ namespace _1.DAL.Repositories.NhanViens
                 nv.MatKhau = obj.MatKhau;
                 nv.Anh = obj.Anh;
                 nv.TrangThai = obj.TrangThai;
-                _context.Update(obj);
+                _context.Update(nv);
                 _context.SaveChanges();
                 return true;
             }

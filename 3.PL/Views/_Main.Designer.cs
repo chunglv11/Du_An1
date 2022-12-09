@@ -125,7 +125,7 @@
             this.btn_DangXuat.Name = "btn_DangXuat";
             this.btn_DangXuat.Size = new System.Drawing.Size(320, 65);
             this.btn_DangXuat.TabIndex = 7;
-            this.btn_DangXuat.Text = "Bán Hàng";
+            this.btn_DangXuat.Text = "Đăng Xuất";
             this.btn_DangXuat.UseVisualStyleBackColor = false;
             // 
             // btn_ThongKe
@@ -155,6 +155,7 @@
             this.btn_KhachHang.TabIndex = 5;
             this.btn_KhachHang.Text = "Khách Hàng";
             this.btn_KhachHang.UseVisualStyleBackColor = false;
+            this.btn_KhachHang.Click += new System.EventHandler(this.btn_KhachHang_Click);
             // 
             // btn_NhanVien
             // 
@@ -169,6 +170,7 @@
             this.btn_NhanVien.TabIndex = 4;
             this.btn_NhanVien.Text = "Nhân Viên";
             this.btn_NhanVien.UseVisualStyleBackColor = false;
+            this.btn_NhanVien.Click += new System.EventHandler(this.btn_NhanVien_Click);
             // 
             // btn_SanPham
             // 
@@ -183,6 +185,7 @@
             this.btn_SanPham.TabIndex = 3;
             this.btn_SanPham.Text = "Sản phẩm";
             this.btn_SanPham.UseVisualStyleBackColor = false;
+            this.btn_SanPham.Click += new System.EventHandler(this.btn_SanPham_Click);
             // 
             // btn_HoaDon
             // 
@@ -197,6 +200,7 @@
             this.btn_HoaDon.TabIndex = 2;
             this.btn_HoaDon.Text = "Hoá Đơn";
             this.btn_HoaDon.UseVisualStyleBackColor = false;
+            this.btn_HoaDon.Click += new System.EventHandler(this.btn_HoaDon_Click);
             // 
             // btn_BanHang
             // 
@@ -211,6 +215,7 @@
             this.btn_BanHang.TabIndex = 1;
             this.btn_BanHang.Text = "Bán Hàng";
             this.btn_BanHang.UseVisualStyleBackColor = false;
+            this.btn_BanHang.Click += new System.EventHandler(this.btn_BanHang_Click);
             // 
             // panel2
             // 

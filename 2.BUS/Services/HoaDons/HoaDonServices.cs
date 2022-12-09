@@ -44,7 +44,7 @@ namespace _2.BUS.Services.HoaDons
             _lstHoaDon = (from a in _ihoaDonRepositories.GetHoaDonFromDb()
                         //  join b in _ikhachHangRepositories.GetKhachHangKhFromDb() on a.IdKh equals b.Id
                           join c in _inhanVienRepositories.GetAllNvFromDb() on a.IdNv equals c.Id
-                          select new HoaDon
+                          select new HoaDon()
                           {
                               MaHD = a.MaHD,
                               IdKh = a.IdKh,

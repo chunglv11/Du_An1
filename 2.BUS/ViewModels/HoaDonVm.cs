@@ -24,6 +24,8 @@ namespace _2.BUS.ViewModels
         public int TinhTrang { get; set; }
 
         //Thuộc tính hiển thị
+        public string TenKH { get; set; }
+        public string TenNv { get; set; }
 
     }
 }
