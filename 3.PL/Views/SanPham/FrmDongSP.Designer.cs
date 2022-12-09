@@ -133,6 +133,7 @@
             this.tb_DongSP_TimKiem.Name = "tb_DongSP_TimKiem";
             this.tb_DongSP_TimKiem.Size = new System.Drawing.Size(503, 38);
             this.tb_DongSP_TimKiem.TabIndex = 53;
+            this.tb_DongSP_TimKiem.TextChanged += new System.EventHandler(this.tb_DongSP_TimKiem_TextChanged);
             // 
             // btn_DongSP_Xoa
             // 

@@ -25,6 +25,7 @@ namespace _3.PL.Views.SanPham
         INSXServices _INSXSV;
         List<ViewChiTietSP> _lstviewChiTietSPs;
         private Guid _id;
+        SaveFileDialog _saveFile = new SaveFileDialog();
         public FrmChiTietSP()
         {
             InitializeComponent();
@@ -82,7 +83,7 @@ namespace _3.PL.Views.SanPham
         private void LoadDataChiTietSP()
         {
             int stt = 1;
-            dtg_Show_ChiTietSP.ColumnCount = 12;
+            dtg_Show_ChiTietSP.ColumnCount = 13;
             dtg_Show_ChiTietSP.Columns[0].Name = "STT";
             dtg_Show_ChiTietSP.Columns[1].Name = "ID";
             dtg_Show_ChiTietSP.Columns[2].Name = "Tên Sản Phẩm";
@@ -95,15 +96,16 @@ namespace _3.PL.Views.SanPham
             dtg_Show_ChiTietSP.Columns[9].Name = "Gía Bán";
             dtg_Show_ChiTietSP.Columns[10].Name = "Mô Tả";
             dtg_Show_ChiTietSP.Columns[11].Name = "Trạng thái";
+            dtg_Show_ChiTietSP.Columns[12].Name = "Ảnh";
             dtg_Show_ChiTietSP.Rows.Clear();
             _lstviewChiTietSPs = _IChiTietSpSV.GetViewChiTietSps();
-            if (tbt_TimKiem_ChiTietSP.Text != "" && !string.IsNullOrEmpty(tbt_TimKiem_ChiTietSP.Text))
+            if (tb_ChiTietSP_TimKiem.Text != "" && !string.IsNullOrEmpty(tb_ChiTietSP_TimKiem.Text))
             {
                 _lstviewChiTietSPs = _lstviewChiTietSPs.Where(p => p.TenSanPham.Contains(tb_ChiTietSP_TimKiem.Text) || p.tenDongSp.Contains(tb_ChiTietSP_TimKiem.Text) || p.tenKichCo.Contains(tb_ChiTietSP_TimKiem.Text) || p.tenMauSac.Contains(tb_ChiTietSP_TimKiem.Text) || p.TenNsx.Contains(tb_ChiTietSP_TimKiem.Text)).ToList();
             }
             foreach (var x in _lstviewChiTietSPs)
             {
-                dtg_Show_ChiTietSP.Rows.Add(stt++, x.Id, x.TenSanPham, x.tenDongSp, x.tenKichCo, x.tenMauSac, x.TenNsx, x.SoLuongTon, x.GiaNhap, x.GiaBan, x.MoTa, x.TinhTrang);
+                dtg_Show_ChiTietSP.Rows.Add(stt++, x.Id, x.TenSanPham, x.tenDongSp, x.tenKichCo, x.tenMauSac, x.TenNsx, x.SoLuongTon, x.GiaNhap, x.GiaBan, x.MoTa, x.TinhTrang,x.Anh);
             }
         }
         private ViewChiTietSP GetData()
@@ -127,17 +129,41 @@ namespace _3.PL.Views.SanPham
                 GiaNhap = Convert.ToDecimal(tb_GiaNhap_ChiTietSP.Text),
                 TinhTrang = cbx_Het.Checked ? 0 : 1,
             };
+            if (ptb_CTSP_Anh.Image == null)
+            {
+                CTSP.Anh = null;
+            }
+            else
+            {
+                MemoryStream stream = new MemoryStream();
+                ptb_CTSP_Anh.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                CTSP.Anh = stream.ToString();
+            }
+            if (ptb_CTSP_Anh.Image != null)
+            {
+                MemoryStream a = new MemoryStream();
+                ptb_CTSP_Anh.Image.Save(a, System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+
             return CTSP;
         }
 
-        private void btn_ChiTietSP_Them_Click(object sender, EventArgs e)
+        private void btn_CTSP_Them_Click(object sender, EventArgs e)
         {
             _IChiTietSpSV.addSanPhamChiTiet(GetData());
             LoadDataChiTietSP();
             Utilities.Utilities.ResetControlValues(this);
+            //OpenFileDialog opd = new OpenFileDialog();
+            //opd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+            //opd.ShowDialog();
+            //DialogResult result = MessageBox.Show("Bạn có muốn chọn ảnh này làm ảnh đại diên không?",
+            //    "Chọn ảnh", MessageBoxButtons.YesNo);
+
+            //   pictureBox1.Image = Image.FromFile(opd.FileName); 
+      
         }
 
-        private void btn_ChiTietSP_Sua_Click(object sender, EventArgs e)
+        private void btn_CTSP_Sua_Click(object sender, EventArgs e)
         {
             var temp = GetData();
             temp.Id = _id;
@@ -146,29 +172,34 @@ namespace _3.PL.Views.SanPham
             Utilities.Utilities.ResetControlValues(this);
         }
 
-        private void btn_ChiTietSP_Xoa_Click(object sender, EventArgs e)
+        private void btn_CTSP_Xoa_Click(object sender, EventArgs e)
         {
             _IChiTietSpSV.deleteSanPhamChiTiet(_id);
             LoadDataChiTietSP();
             Utilities.Utilities.ResetControlValues(this);
         }
 
-        private void btn_ShowChiTietSP_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_ChiTietSP_Back_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void tbt_TimKiem_ChiTietSP_Click(object sender, EventArgs e)
+        private void btn_CTSP_TimKiem_Click(object sender, EventArgs e)
         {
             LoadDataChiTietSP();
         }
 
-        private void dtg_Show_ChiTietSP_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btn_CTSP_Reset_Click(object sender, EventArgs e)
+        {
+            Utilities.Utilities.ResetControlValues(this);
+            cbb_TenSP_ChiTietSP.Text = "";
+            cbb_MauSac_ChiTietSP.Text = "";
+            cbb_KichCo_ChiTietSP.Text = "";
+            cbb_DongSP_ChiTietSP.Text = "";
+            cbb_NSX_ChiTietSP.Text = "";
+        }
+
+        private void btn_CTSP_Back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dtg_Show_ChiTietSP_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -195,7 +226,62 @@ namespace _3.PL.Views.SanPham
                     cbx_Het.Checked = true;
                     cbx_Con.Checked = false;
                 }
+                if (CTSP.Anh == null)
+                {
+                    ptb_CTSP_Anh.Image = null;
+                }
+                else
+                {
+                    MemoryStream memoryStream = new MemoryStream() ;                  
+                    Image img = Image.FromStream(memoryStream);
+                    if (img == null) return;
+                    ptb_CTSP_Anh.Image = img;
+                }
+
+            }
+        }
+
+        private void ptb_CTSP_Anh_DragDrop(object sender, DragEventArgs e)
+        {
+            try
+            {
+                var data = e.Data.GetData(DataFormats.FileDrop);
+                if (data != null)
+                {
+                    var filename = data as string[];
+                    if (filename.Length > 0 && filename.Length < 512000)
+                    {
+                        ptb_CTSP_Anh.Image = Image.FromFile(filename[0]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ptb_CTSP_Anh_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void ptb_CTSP_Anh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Choose Image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
+            if (opf.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    ptb_CTSP_Anh.Image = Image.FromFile(opf.FileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }
 }
+

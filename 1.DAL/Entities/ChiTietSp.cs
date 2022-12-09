@@ -16,7 +16,7 @@ namespace _1.DAL.Entities
         public Guid IdKichCo { get; set; }              
         public string MoTa { get; set; }
         public int SoLuongTon { get; set; }       
-        public string? Anh { get; set; }       
+        public string ? Anh { get; set; }       
         public decimal GiaNhap { get; set; }        
         public decimal GiaBan { get; set; }
         public int TinhTrang { get; set; }

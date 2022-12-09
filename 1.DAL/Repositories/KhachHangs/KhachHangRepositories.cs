@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using _1.DAL.Entities;
 using _1.DAL.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace _1.DAL.Repositories.KhachHangs
 {
@@ -16,35 +17,25 @@ namespace _1.DAL.Repositories.KhachHangs
         {
             _context = new QLBH_Context();
             _lstKhachHang = new List<KhachHang>();
+            GetKhachHangKhFromDb();
         }
 
         public bool AddKhFromDb(KhachHang obj)
         {
-            try
-            {
-                obj.Id = Guid.NewGuid();
-                _context.Add(obj);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            if (obj == null) return false;
+            obj.Id = Guid.NewGuid();
+            _context.khachHangs.Add(obj);
+            _context.SaveChanges();
+            return true;
         }
 
         public bool DeleteKhFromDb(KhachHang obj)
         {
-            try
-            {
-                _context.Remove(obj);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            if (obj == null) return false;
+            var temp = _context.khachHangs.FirstOrDefault(c => c.Id == obj.Id);
+            _context.khachHangs.Remove(temp);
+            _context.SaveChanges();
+            return true;
         }
 
         public List<KhachHang> GetKhachHangKhFromDb()
@@ -55,21 +46,15 @@ namespace _1.DAL.Repositories.KhachHangs
 
         public bool UpdateKhFromDb(KhachHang obj)
         {
-            try
-            {
-                KhachHang kh = _context.khachHangs.Find(obj.Id);
-                kh.MaKH = obj.MaKH;
-                kh.HoTenKH = obj.HoTenKH;
-                kh.DiaChi = obj.DiaChi;
-                kh.Sdt = obj.Sdt;
-                _context.Update(kh);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            if (obj == null) return false;
+            var temp = _context.khachHangs.FirstOrDefault(c => c.Id == obj.Id);
+            temp.MaKH = obj.MaKH;
+            temp.HoTenKH = obj.HoTenKH;
+            temp.Sdt = obj.Sdt;
+            temp.DiaChi = obj.DiaChi;
+            _context.khachHangs.Update(temp);
+            _context.SaveChanges();
+            return true;
         }
     }
 }

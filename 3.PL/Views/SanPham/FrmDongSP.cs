@@ -56,10 +56,7 @@ namespace _3.PL.Views.SanPham
                 dtg_DongSP_Show.Rows.Add(a.Id, a.MaDsp, a.TenDsp);
             }
         }
-        private void tb_timkiem_TextChanged(object sender, EventArgs e)
-        {
-            LoadDataCheck(tb_DongSP_TimKiem.Text);
-        }
+
 
         private void btn_DongSP_Them_Click(object sender, EventArgs e)
         {
@@ -158,9 +155,14 @@ namespace _3.PL.Views.SanPham
             {
                 DataGridViewRow r = dtg_DongSP_Show.Rows[e.RowIndex];
                 _DongSP = _IDongSPSV.GetAll().FirstOrDefault(c => c.Id == Guid.Parse(r.Cells[0].Value.ToString()));
-                tb_TenDongSP.Text = r.Cells[1].Value.ToString();
-                tb_maDongSP.Text = r.Cells[2].Value.ToString();
+                tb_maDongSP.Text = r.Cells[1].Value.ToString();
+                tb_TenDongSP.Text = r.Cells[2].Value.ToString();
             }
+        }
+
+        private void tb_DongSP_TimKiem_TextChanged(object sender, EventArgs e)
+        {
+            LoadDataCheck(tb_DongSP_TimKiem.Text);
         }
     }
 }
