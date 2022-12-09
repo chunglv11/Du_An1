@@ -19,9 +19,8 @@ namespace _1.DAL.Entities
         public string CCCD { get; set; }
         public string Sdt { get; set; }
         public string Email { get; set; }
-        public string MatKhau { get; set; }
-        public string Anh { get; set; }
-        
+        public string? MatKhau { get; set; }
+        public string Anh { get; set; }     
         public int TrangThai { get; set; }
         public virtual CuaHang CuaHang { get; set; }
         public virtual ChucVu ChucVu { get; set; }

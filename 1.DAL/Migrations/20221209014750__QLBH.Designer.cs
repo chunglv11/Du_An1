@@ -12,7 +12,7 @@ using _1.DAL.Context;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(QLBH_Context))]
-    [Migration("20221208174435__QLBH")]
+    [Migration("20221209014750__QLBH")]
     partial class _QLBH
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -335,7 +335,6 @@ namespace _1.DAL.Migrations
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("MatKhau")
-                        .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("NgaySinh")
