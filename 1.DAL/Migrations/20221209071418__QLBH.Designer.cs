@@ -12,7 +12,7 @@ using _1.DAL.Context;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(QLBH_Context))]
-    [Migration("20221209014750__QLBH")]
+    [Migration("20221209071418__QLBH")]
     partial class _QLBH
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
