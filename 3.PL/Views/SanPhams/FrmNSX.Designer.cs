@@ -1,4 +1,4 @@
-﻿namespace _3.PL.Views.SanPham
+﻿namespace _3.PL.Views.SanPhams
 {
     partial class FrmNSX
     {

@@ -15,7 +15,7 @@ using _3.PL.Views.DangNhap;
 using _3.PL.Views.HoaDon;
 using _3.PL.Views.KhachHang;
 using _3.PL.Views.NhanViens;
-using _3.PL.Views.SanPham;
+using _3.PL.Views.SanPhams;
 
 namespace _3.PL.Views
 {
