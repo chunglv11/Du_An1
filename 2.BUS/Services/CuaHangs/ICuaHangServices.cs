@@ -9,12 +9,10 @@ namespace _2.BUS.Services.CuaHangs
 {
     public interface ICuaHangServices
     {
-        bool AddCH(CuaHang obj);
-
-        bool DeleteCH(CuaHang obj);
-
-        bool UpdateCH(CuaHang obj);
-
-        List<CuaHang> GetCuaHang();
+        string Add(CuaHang obj);
+        string Update(CuaHang obj);
+        string Delete(CuaHang obj);
+        List<CuaHang> GetAll();
+        List<CuaHang> GetAll(string input);
     }
 }

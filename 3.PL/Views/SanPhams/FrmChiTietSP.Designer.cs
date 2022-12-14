@@ -36,11 +36,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.ptb_CTSP_Anh = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.rdb_Het = new System.Windows.Forms.RadioButton();
+            this.rdb_Con = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.rtb_MoTa_ChiTietSP = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbx_Con = new System.Windows.Forms.CheckBox();
-            this.cbx_Het = new System.Windows.Forms.CheckBox();
             this.tb_GiaBan_ChiTietSP = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tb_GiaNhap_ChiTietSP = new System.Windows.Forms.TextBox();
@@ -60,6 +60,7 @@
             this.dtg_Show_ChiTietSP = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btn_ChonAnh = new System.Windows.Forms.Button();
             this.btn_CTSP_TimKiem = new System.Windows.Forms.Button();
             this.tb_ChiTietSP_TimKiem = new System.Windows.Forms.TextBox();
             this.btn_CTSP_Back = new System.Windows.Forms.Button();
@@ -119,7 +120,8 @@
             // 
             // panel9
             // 
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel9.BackgroundImage = global::_3.PL.Properties.Resources.tải_xuống;
+            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel9.Location = new System.Drawing.Point(495, 3);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1258, 78);
@@ -146,6 +148,8 @@
             // 
             // ptb_CTSP_Anh
             // 
+            this.ptb_CTSP_Anh.BackgroundImage = global::_3.PL.Properties.Resources.tải_xuống;
+            this.ptb_CTSP_Anh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptb_CTSP_Anh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ptb_CTSP_Anh.Location = new System.Drawing.Point(0, 0);
             this.ptb_CTSP_Anh.Name = "ptb_CTSP_Anh";
@@ -153,17 +157,14 @@
             this.ptb_CTSP_Anh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptb_CTSP_Anh.TabIndex = 0;
             this.ptb_CTSP_Anh.TabStop = false;
-            this.ptb_CTSP_Anh.Click += new System.EventHandler(this.ptb_CTSP_Anh_Click);
-            this.ptb_CTSP_Anh.DragDrop += new System.Windows.Forms.DragEventHandler(this.ptb_CTSP_Anh_DragDrop);
-            this.ptb_CTSP_Anh.DragEnter += new System.Windows.Forms.DragEventHandler(this.ptb_CTSP_Anh_DragEnter);
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.rdb_Het);
+            this.panel2.Controls.Add(this.rdb_Con);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.rtb_MoTa_ChiTietSP);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.cbx_Con);
-            this.panel2.Controls.Add(this.cbx_Het);
             this.panel2.Controls.Add(this.tb_GiaBan_ChiTietSP);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.tb_GiaNhap_ChiTietSP);
@@ -185,12 +186,34 @@
             this.panel2.Size = new System.Drawing.Size(478, 592);
             this.panel2.TabIndex = 1;
             // 
+            // rdb_Het
+            // 
+            this.rdb_Het.AutoSize = true;
+            this.rdb_Het.Location = new System.Drawing.Point(351, 481);
+            this.rdb_Het.Name = "rdb_Het";
+            this.rdb_Het.Size = new System.Drawing.Size(94, 24);
+            this.rdb_Het.TabIndex = 124;
+            this.rdb_Het.TabStop = true;
+            this.rdb_Het.Text = "Hết Hàng";
+            this.rdb_Het.UseVisualStyleBackColor = true;
+            // 
+            // rdb_Con
+            // 
+            this.rdb_Con.AutoSize = true;
+            this.rdb_Con.Location = new System.Drawing.Point(195, 481);
+            this.rdb_Con.Name = "rdb_Con";
+            this.rdb_Con.Size = new System.Drawing.Size(96, 24);
+            this.rdb_Con.TabIndex = 123;
+            this.rdb_Con.TabStop = true;
+            this.rdb_Con.Text = "Còn Hàng";
+            this.rdb_Con.UseVisualStyleBackColor = true;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(19, 550);
+            this.label6.Location = new System.Drawing.Point(10, 551);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 23);
@@ -217,32 +240,6 @@
             this.label3.Size = new System.Drawing.Size(95, 23);
             this.label3.TabIndex = 120;
             this.label3.Text = "Trạng Thái";
-            // 
-            // cbx_Con
-            // 
-            this.cbx_Con.AutoSize = true;
-            this.cbx_Con.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cbx_Con.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cbx_Con.Location = new System.Drawing.Point(195, 481);
-            this.cbx_Con.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.cbx_Con.Name = "cbx_Con";
-            this.cbx_Con.Size = new System.Drawing.Size(118, 29);
-            this.cbx_Con.TabIndex = 118;
-            this.cbx_Con.Text = "Còn Hàng";
-            this.cbx_Con.UseVisualStyleBackColor = true;
-            // 
-            // cbx_Het
-            // 
-            this.cbx_Het.AutoSize = true;
-            this.cbx_Het.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cbx_Het.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cbx_Het.Location = new System.Drawing.Point(334, 481);
-            this.cbx_Het.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.cbx_Het.Name = "cbx_Het";
-            this.cbx_Het.Size = new System.Drawing.Size(113, 29);
-            this.cbx_Het.TabIndex = 119;
-            this.cbx_Het.Text = "Hết Hàng";
-            this.cbx_Het.UseVisualStyleBackColor = true;
             // 
             // tb_GiaBan_ChiTietSP
             // 
@@ -450,6 +447,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btn_ChonAnh);
             this.panel3.Controls.Add(this.btn_CTSP_TimKiem);
             this.panel3.Controls.Add(this.tb_ChiTietSP_TimKiem);
             this.panel3.Controls.Add(this.btn_CTSP_Back);
@@ -470,6 +468,19 @@
             this.panel3.Size = new System.Drawing.Size(1254, 125);
             this.panel3.TabIndex = 0;
             // 
+            // btn_ChonAnh
+            // 
+            this.btn_ChonAnh.BackColor = System.Drawing.SystemColors.Info;
+            this.btn_ChonAnh.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_ChonAnh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(164)))), ((int)(((byte)(78)))));
+            this.btn_ChonAnh.Location = new System.Drawing.Point(556, 15);
+            this.btn_ChonAnh.Name = "btn_ChonAnh";
+            this.btn_ChonAnh.Size = new System.Drawing.Size(149, 45);
+            this.btn_ChonAnh.TabIndex = 70;
+            this.btn_ChonAnh.Text = "Chọn Ảnh";
+            this.btn_ChonAnh.UseVisualStyleBackColor = false;
+            this.btn_ChonAnh.Click += new System.EventHandler(this.btn_ChonAnh_Click);
+            // 
             // btn_CTSP_TimKiem
             // 
             this.btn_CTSP_TimKiem.BackColor = System.Drawing.SystemColors.Info;
@@ -487,11 +498,11 @@
             // 
             this.tb_ChiTietSP_TimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_ChiTietSP_TimKiem.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.tb_ChiTietSP_TimKiem.Location = new System.Drawing.Point(572, 49);
+            this.tb_ChiTietSP_TimKiem.Location = new System.Drawing.Point(556, 86);
             this.tb_ChiTietSP_TimKiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_ChiTietSP_TimKiem.Name = "tb_ChiTietSP_TimKiem";
             this.tb_ChiTietSP_TimKiem.PlaceholderText = "Tìm Kiếm...";
-            this.tb_ChiTietSP_TimKiem.Size = new System.Drawing.Size(584, 34);
+            this.tb_ChiTietSP_TimKiem.Size = new System.Drawing.Size(660, 34);
             this.tb_ChiTietSP_TimKiem.TabIndex = 67;
             // 
             // btn_CTSP_Back
@@ -688,8 +699,6 @@
         private Label label6;
         private RichTextBox rtb_MoTa_ChiTietSP;
         private Label label3;
-        private CheckBox cbx_Con;
-        private CheckBox cbx_Het;
         private DataGridView dtg_Show_ChiTietSP;
         private FlowLayoutPanel flowLayoutPanel3;
         private Panel panel3;
@@ -707,5 +716,8 @@
         private Button btn_CTSP_Reset;
         private Button btn_CTSP_TimKiem;
         private TextBox tb_ChiTietSP_TimKiem;
+        private Button btn_ChonAnh;
+        private RadioButton rdb_Con;
+        private RadioButton rdb_Het;
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using _1.DAL.Entities;
 using _1.DAL.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace _1.DAL.Repositories.HoaDons
 {
@@ -17,57 +18,40 @@ namespace _1.DAL.Repositories.HoaDons
             _context = new QLBH_Context();
             _lstHDCT = new List<HoaDonChiTiet>();
         }
-        public bool AddHdCTFromDb(HoaDonChiTiet obj)
+
+        public bool addHDCT(HoaDonChiTiet hoadonCT)
         {
-            try
-            {
-                _context.Add(obj);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            if (hoadonCT == null) return false;
+            _context.hoaDonChiTiets.Add(hoadonCT);
+            _context.SaveChanges();
+            return true;
         }
 
-        public bool DeleteHdCTFromDb(HoaDonChiTiet obj)
+        public bool DeleteHDCT(HoaDonChiTiet hoadonCT)
         {
-            try
-            {
-                _context.Remove(obj);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            if (hoadonCT == null) return false;
+            var temp = _context.hoaDonChiTiets.FirstOrDefault(c => c.IdHoaDon == hoadonCT.IdHoaDon);
+            _context.hoaDonChiTiets.Remove(temp);
+            _context.SaveChanges();
+            return true;
         }
 
-        public HoaDonChiTiet GetHoaDonCTById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<HoaDonChiTiet> GetHoaDonCTFromDb()
+        public List<HoaDonChiTiet> GetHDCTFromDB()
         {
             _lstHDCT = _context.hoaDonChiTiets.ToList();
             return _lstHDCT;
         }
 
-        public bool UpdateHdCTFromDb(HoaDonChiTiet obj)
+        public bool updateHDCT(HoaDonChiTiet hoadonCT)
         {
-            try
-            {
-                _context.Update(obj);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            if (hoadonCT == null) return false;
+            var temp = _context.hoaDonChiTiets.FirstOrDefault(c => c.IdHoaDon == hoadonCT.IdHoaDon);
+            temp.IdChiTietSp = hoadonCT.IdChiTietSp;
+            temp.SoLuong = hoadonCT.SoLuong;
+            temp.DonGia = hoadonCT.DonGia;
+            _context.hoaDonChiTiets.Update(temp);
+            _context.SaveChanges();
+            return true;
         }
     }
 }

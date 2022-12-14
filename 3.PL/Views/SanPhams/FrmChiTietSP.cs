@@ -26,6 +26,7 @@ namespace _3.PL.Views.SanPhams
         List<ViewChiTietSP> _lstviewChiTietSPs;
         private Guid _id;
         SaveFileDialog _saveFile = new SaveFileDialog();
+        public string Avatar = "";
         public FrmChiTietSP()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace _3.PL.Views.SanPhams
             _IMauSacSV = new MauSacServices();
             _INSXSV = new NSXServices();
             _lstviewChiTietSPs = new List<ViewChiTietSP>();
-            cbx_Con.Checked = true;
+            rdb_Con.Checked = true;
             LoadSanPham();
             LoadDongSP();
             LoadKichCo();
@@ -105,7 +106,7 @@ namespace _3.PL.Views.SanPhams
             }
             foreach (var x in _lstviewChiTietSPs)
             {
-                dtg_Show_ChiTietSP.Rows.Add(stt++, x.Id, x.TenSanPham, x.tenDongSp, x.tenKichCo, x.tenMauSac, x.TenNsx, x.SoLuongTon, x.GiaNhap, x.GiaBan, x.MoTa, x.TinhTrang,x.Anh);
+                dtg_Show_ChiTietSP.Rows.Add(stt++, x.Id, x.TenSanPham, x.tenDongSp, x.tenKichCo, x.tenMauSac, x.TenNsx, x.SoLuongTon, x.GiaNhap, x.GiaBan, x.MoTa, x.TinhTrang == 1 ? "Còn Hàng" : "Hết Hàng", x.Anh);
             }
         }
         private ViewChiTietSP GetData()
@@ -127,56 +128,73 @@ namespace _3.PL.Views.SanPhams
                 SoLuongTon = Convert.ToInt32(tb_SoLuongTon_ChiTietSP.Text),
                 GiaBan = Convert.ToDecimal(tb_GiaBan_ChiTietSP.Text),
                 GiaNhap = Convert.ToDecimal(tb_GiaNhap_ChiTietSP.Text),
-                TinhTrang = cbx_Het.Checked ? 0 : 1,
+                TinhTrang = rdb_Het.Checked ? 0 : 1,
+                
             };
-            if (ptb_CTSP_Anh.Image == null)
-            {
-                CTSP.Anh = null;
-            }
-            else
-            {
-                MemoryStream stream = new MemoryStream();
-                ptb_CTSP_Anh.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
-                CTSP.Anh = stream.ToString();
-            }
-            if (ptb_CTSP_Anh.Image != null)
-            {
-                MemoryStream a = new MemoryStream();
-                ptb_CTSP_Anh.Image.Save(a, System.Drawing.Imaging.ImageFormat.Jpeg);
-            }
-
             return CTSP;
         }
 
         private void btn_CTSP_Them_Click(object sender, EventArgs e)
         {
-            _IChiTietSpSV.addSanPhamChiTiet(GetData());
-            LoadDataChiTietSP();
-            Utilities.Utilities.ResetControlValues(this);
-            //OpenFileDialog opd = new OpenFileDialog();
-            //opd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
-            //opd.ShowDialog();
-            //DialogResult result = MessageBox.Show("Bạn có muốn chọn ảnh này làm ảnh đại diên không?",
-            //    "Chọn ảnh", MessageBoxButtons.YesNo);
-
-            //   pictureBox1.Image = Image.FromFile(opd.FileName); 
-      
+            if (cbb_TenSP_ChiTietSP.Text == "" || cbb_DongSP_ChiTietSP.Text == "" || cbb_KichCo_ChiTietSP.Text == "" || cbb_MauSac_ChiTietSP.Text == "" || cbb_NSX_ChiTietSP.Text == "")
+            {
+                MessageBox.Show("Thuộc tính không được để trống");
+            }
+            if (Convert.ToDecimal(tb_GiaBan_ChiTietSP.Text) < Convert.ToDecimal(tb_GiaNhap_ChiTietSP.Text))
+            {
+                MessageBox.Show("Giá bán phải lớn hơn giá nhập");
+            }
+            {
+                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn thêm không?", "", MessageBoxButtons.YesNo))
+                {
+                    _IChiTietSpSV.addSanPhamChiTiet(GetData());
+                    LoadDataChiTietSP();
+                    Utilities.Utilities.ResetControlValues(this);
+                }
+                LoadDataChiTietSP();
+            }
+            
         }
 
         private void btn_CTSP_Sua_Click(object sender, EventArgs e)
         {
-            var temp = GetData();
-            temp.Id = _id;
-            _IChiTietSpSV.updateSanPhamChiTiet(temp);
-            LoadDataChiTietSP();
-            Utilities.Utilities.ResetControlValues(this);
+            if (cbb_TenSP_ChiTietSP.Text == "")
+            {
+                MessageBox.Show("Bạn chưa chọn sản phẩm nào để sửa", "Thông báo");
+            }
+            else
+            {
+                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn sửa không?", "", MessageBoxButtons.YesNo))
+                {
+                    var temp = GetData();
+                    temp.Id = _id;
+                    _IChiTietSpSV.updateSanPhamChiTiet(temp);
+                    LoadDataChiTietSP();
+                    Utilities.Utilities.ResetControlValues(this);
+                    
+                }
+                LoadDataChiTietSP();
+            }
+           
         }
 
         private void btn_CTSP_Xoa_Click(object sender, EventArgs e)
         {
-            _IChiTietSpSV.deleteSanPhamChiTiet(_id);
-            LoadDataChiTietSP();
-            Utilities.Utilities.ResetControlValues(this);
+            if (cbb_TenSP_ChiTietSP.Text == "")
+            {
+                MessageBox.Show("Bạn chưa chọn sản phẩm nào để xóa", "Thông báo");
+            }
+            else
+            {
+                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa không?", "", MessageBoxButtons.YesNo))
+                {
+                    _IChiTietSpSV.deleteSanPhamChiTiet(_id);
+                    LoadDataChiTietSP();
+                    Utilities.Utilities.ResetControlValues(this);
+                }
+                LoadDataChiTietSP();
+            }
+           
         }
 
         private void btn_CTSP_TimKiem_Click(object sender, EventArgs e)
@@ -192,6 +210,13 @@ namespace _3.PL.Views.SanPhams
             cbb_KichCo_ChiTietSP.Text = "";
             cbb_DongSP_ChiTietSP.Text = "";
             cbb_NSX_ChiTietSP.Text = "";
+            tb_SoLuongTon_ChiTietSP.Text = "";
+            tb_GiaBan_ChiTietSP.Text = "";
+            tb_GiaNhap_ChiTietSP.Text = "";
+            rdb_Con.Checked = false;
+            rdb_Het.Checked = false;
+            rtb_MoTa_ChiTietSP.Text = "";
+
         }
 
         private void btn_CTSP_Back_Click(object sender, EventArgs e)
@@ -216,72 +241,89 @@ namespace _3.PL.Views.SanPhams
                 tb_SoLuongTon_ChiTietSP.Text = CTSP.SoLuongTon.ToString();
                 tb_GiaBan_ChiTietSP.Text = CTSP.GiaBan.ToString();
                 tb_GiaNhap_ChiTietSP.Text = CTSP.GiaNhap.ToString();
+                
                 if (CTSP.TinhTrang == 1)
                 {
-                    cbx_Con.Checked = true;
-                    cbx_Het.Checked = false;
+                    rdb_Con.Checked = true;
+                    rdb_Het.Checked = false;
                 }
                 else
                 {
-                    cbx_Het.Checked = true;
-                    cbx_Con.Checked = false;
+                    rdb_Het.Checked = true;
+                    rdb_Con.Checked = false;
                 }
-                if (CTSP.Anh == null)
+                ptb_CTSP_Anh.SizeMode = PictureBoxSizeMode.StretchImage;
+                if (CTSP.Anh != null && File.Exists(CTSP.Anh))
+                {
+                    ptb_CTSP_Anh.Image = Image.FromFile(CTSP.Anh);
+                    ptb_CTSP_Anh.SizeMode = PictureBoxSizeMode.StretchImage;
+                    Avatar = CTSP.Anh;
+                }
+                else
                 {
                     ptb_CTSP_Anh.Image = null;
                 }
-                else
-                {
-                    MemoryStream memoryStream = new MemoryStream() ;                  
-                    Image img = Image.FromStream(memoryStream);
-                    if (img == null) return;
-                    ptb_CTSP_Anh.Image = img;
-                }
-
             }
         }
 
-        private void ptb_CTSP_Anh_DragDrop(object sender, DragEventArgs e)
+        private void btn_ChonAnh_Click(object sender, EventArgs e)
         {
-            try
+            OpenFileDialog op = new OpenFileDialog();
+            if (ptb_CTSP_Anh.Image != null)
             {
-                var data = e.Data.GetData(DataFormats.FileDrop);
-                if (data != null)
+                DialogResult dialogResult = MessageBox.Show("Bạn có muốn đổi ảnh ko?",
+                    "...", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    var filename = data as string[];
-                    if (filename.Length > 0 && filename.Length < 512000)
+
+                    if (op.ShowDialog() == DialogResult.OK)
                     {
-                        ptb_CTSP_Anh.Image = Image.FromFile(filename[0]);
+                        Avatar = op.FileName;
+                        ptb_CTSP_Anh.Image = Image.FromFile(op.FileName);
+                        ptb_CTSP_Anh.SizeMode = PictureBoxSizeMode.StretchImage;
+                        MessageBox.Show(op.FileName);
                     }
                 }
             }
-            catch (Exception ex)
+            if (ptb_CTSP_Anh.Image == null)
             {
-                MessageBox.Show(ex.Message);
+                if (op.ShowDialog() == DialogResult.OK)
+                {
+                    Avatar = op.FileName;
+                    ptb_CTSP_Anh.Image = Image.FromFile(op.FileName);
+                    //ptb_CTSP_Anh.SizeMode = PictureBoxSizeMode.CenterImage;
+                    MessageBox.Show(op.FileName);
+                }
+
             }
         }
 
-        private void ptb_CTSP_Anh_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Copy;
-        }
+        //private void ptb_CTSP_Anh_DragDrop(object sender, DragEventArgs e)
+        //{
+        //    try
+        //    {
+        //        var data = e.Data.GetData(DataFormats.FileDrop);
+        //        if (data != null)
+        //        {
+        //            var filename = data as string[];
+        //            if (filename.Length > 0 && filename.Length < 512000)
+        //            {
+        //                ptb_CTSP_Anh.Image = Image.FromFile(filename[0]);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
-        private void ptb_CTSP_Anh_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog opf = new OpenFileDialog();
-            opf.Filter = "Choose Image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
-            if (opf.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    ptb_CTSP_Anh.Image = Image.FromFile(opf.FileName);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
+        //private void ptb_CTSP_Anh_DragEnter(object sender, DragEventArgs e)
+        //{
+        //    e.Effect = DragDropEffects.Copy;
+        //}
+
+
     }
 }
 

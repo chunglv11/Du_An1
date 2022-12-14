@@ -13,7 +13,7 @@ namespace _1.DAL.Entities
         public Guid IdCv { get; set; }
         public string MaNv { get; set; }
         public string HoTenNv { get; set; }
-        public int GioiTinh { get; set; }
+        public string GioiTinh { get; set; }
         public DateTime NgaySinh { get; set; }
         public string DiaChi { get; set; }
         public string CCCD { get; set; }

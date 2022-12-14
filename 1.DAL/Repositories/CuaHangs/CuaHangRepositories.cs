@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using _1.DAL.Entities;
 using _1.DAL.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace _1.DAL.Repositories.CuaHangs
 {
@@ -17,59 +18,39 @@ namespace _1.DAL.Repositories.CuaHangs
             _context = new QLBH_Context();
             _lstCuaHang = new List<CuaHang>();
         }
-        public bool AddChFromDb(CuaHang obj)
+
+        public bool Add(CuaHang obj)
         {
-            try
-            {
-                //obj.Id = Guid.NewGuid();
-                _context.Add(obj);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            if (obj == null) return false;
+            _context.cuaHangs.Add(obj);
+            _context.SaveChanges();
+            return true;
         }
 
-        public bool DeleteChFromDb(CuaHang obj)
+        public bool Delete(CuaHang obj)
         {
-            try
-            {
-                _context.Remove(obj);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            if (obj == null) return false;
+            var tempobj = _context.cuaHangs.FirstOrDefault(c => c.Id == obj.Id);
+            _context.Remove(tempobj);
+            _context.SaveChanges();
+            return true;
         }
 
-        public List<CuaHang> GetCuaHangFromDb()
+        public List<CuaHang> GetAll()
         {
-            _lstCuaHang = _context.cuaHangs.ToList();
-            return _lstCuaHang;
+            return _context.cuaHangs.ToList();
         }
 
-        public bool UpdateChFromDb(CuaHang obj)
+        public bool Update(CuaHang obj)
         {
-            try
-            {
-                CuaHang ch = _context.cuaHangs.Find(obj.Id);
-                ch.MaCH = obj.MaCH;
-                ch.TenCH = obj.TenCH;
-                ch.DiaChi = obj.DiaChi;
-                ch.ThanhPho = obj.ThanhPho;
-                ch.QuocGia = obj.QuocGia;
-                _context.Update(ch);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            if (obj == null) return false;
+            var tempobj =  _context.cuaHangs.FirstOrDefault(c => c.Id == obj.Id);
+            tempobj.Id = obj.Id;
+            tempobj.MaCH = obj.MaCH;
+            tempobj.TenCH = obj.TenCH;
+            _context.cuaHangs.Update(tempobj);
+            _context.SaveChanges();
+            return true;
         }
     }
 }

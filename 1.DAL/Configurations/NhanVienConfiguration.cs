@@ -21,7 +21,7 @@ namespace _1.DAL.Configurations
             builder.Property(c => c.MaNv).HasColumnType("nvarchar(10)").IsRequired();
             builder.Property(c => c.HoTenNv).HasColumnType("nvarchar(50)").IsRequired();
             builder.Property(c => c.NgaySinh).HasColumnType("Datetime").IsRequired();
-            builder.Property(c => c.GioiTinh).HasColumnType("int").IsRequired();
+            builder.Property(c => c.GioiTinh).HasColumnType("nvarchar(20)").IsRequired();
             builder.Property(c => c.DiaChi).HasColumnType("nvarchar(200)").IsRequired();
             builder.Property(c => c.CCCD).HasColumnType("nvarchar(20)").IsRequired();
             builder.Property(c => c.Sdt).HasColumnType("nvarchar(20)").IsRequired();

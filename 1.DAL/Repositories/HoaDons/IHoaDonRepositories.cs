@@ -9,14 +9,11 @@ namespace _1.DAL.Repositories.HoaDons
 {
     public interface IHoaDonRepositories
     {
-        bool AddHdFromDb(HoaDon obj);
+        bool addHoaDon(HoaDon hoadon);
+        bool DeleteHoaDon(HoaDon hoadon);
+        bool updateHoaDon(HoaDon hoadon);
 
-        bool DeleteHdFromDb(HoaDon obj);
+        List<HoaDon> GetHoaDonFromDB();
 
-        bool UpdateHdFromDb(HoaDon obj);
-
-        HoaDon GetHoaDonById(Guid id);
-
-        List<HoaDon> GetHoaDonFromDb();
     }
 }

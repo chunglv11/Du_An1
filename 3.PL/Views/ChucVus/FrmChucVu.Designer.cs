@@ -38,6 +38,9 @@
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.dgv_ShowCV = new System.Windows.Forms.DataGridView();
+            this.btn_reset = new System.Windows.Forms.Button();
+            this.txt_TimKiem = new System.Windows.Forms.TextBox();
+            this.lbl_TimKiem = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ShowCV)).BeginInit();
             this.SuspendLayout();
@@ -65,17 +68,18 @@
             // tb_MaCv
             // 
             this.tb_MaCv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tb_MaCv.Location = new System.Drawing.Point(80, 98);
+            this.tb_MaCv.Location = new System.Drawing.Point(155, 102);
             this.tb_MaCv.Name = "tb_MaCv";
-            this.tb_MaCv.Size = new System.Drawing.Size(318, 34);
+            this.tb_MaCv.Size = new System.Drawing.Size(311, 34);
             this.tb_MaCv.TabIndex = 2;
+            this.tb_MaCv.TextChanged += new System.EventHandler(this.tb_MaCv_TextChanged);
             // 
             // btn_Them
             // 
             this.btn_Them.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_Them.Location = new System.Drawing.Point(12, 226);
+            this.btn_Them.Location = new System.Drawing.Point(12, 307);
             this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(112, 49);
+            this.btn_Them.Size = new System.Drawing.Size(112, 39);
             this.btn_Them.TabIndex = 12;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = true;
@@ -87,7 +91,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 69);
+            this.panel1.Size = new System.Drawing.Size(937, 69);
             this.panel1.TabIndex = 13;
             // 
             // label3
@@ -104,17 +108,18 @@
             // tb_TenCv
             // 
             this.tb_TenCv.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tb_TenCv.Location = new System.Drawing.Point(80, 144);
+            this.tb_TenCv.Location = new System.Drawing.Point(155, 148);
             this.tb_TenCv.Name = "tb_TenCv";
-            this.tb_TenCv.Size = new System.Drawing.Size(318, 38);
+            this.tb_TenCv.Size = new System.Drawing.Size(311, 38);
             this.tb_TenCv.TabIndex = 14;
+            this.tb_TenCv.TextChanged += new System.EventHandler(this.tb_TenCv_TextChanged);
             // 
             // btn_Sua
             // 
             this.btn_Sua.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_Sua.Location = new System.Drawing.Point(146, 226);
+            this.btn_Sua.Location = new System.Drawing.Point(144, 307);
             this.btn_Sua.Name = "btn_Sua";
-            this.btn_Sua.Size = new System.Drawing.Size(112, 49);
+            this.btn_Sua.Size = new System.Drawing.Size(112, 39);
             this.btn_Sua.TabIndex = 15;
             this.btn_Sua.Text = "Sửa";
             this.btn_Sua.UseVisualStyleBackColor = true;
@@ -123,9 +128,9 @@
             // btn_Xoa
             // 
             this.btn_Xoa.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_Xoa.Location = new System.Drawing.Point(286, 226);
+            this.btn_Xoa.Location = new System.Drawing.Point(273, 307);
             this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(112, 49);
+            this.btn_Xoa.Size = new System.Drawing.Size(112, 39);
             this.btn_Xoa.TabIndex = 16;
             this.btn_Xoa.Text = "Xoá";
             this.btn_Xoa.UseVisualStyleBackColor = true;
@@ -135,20 +140,53 @@
             // 
             this.dgv_ShowCV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgv_ShowCV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ShowCV.Location = new System.Drawing.Point(427, 87);
+            this.dgv_ShowCV.Location = new System.Drawing.Point(552, 98);
             this.dgv_ShowCV.Name = "dgv_ShowCV";
             this.dgv_ShowCV.RowHeadersWidth = 51;
             this.dgv_ShowCV.RowTemplate.Height = 29;
-            this.dgv_ShowCV.Size = new System.Drawing.Size(361, 188);
+            this.dgv_ShowCV.Size = new System.Drawing.Size(361, 248);
             this.dgv_ShowCV.TabIndex = 17;
             this.dgv_ShowCV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ShowCV_CellClick);
+            // 
+            // btn_reset
+            // 
+            this.btn_reset.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_reset.Location = new System.Drawing.Point(405, 307);
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Size = new System.Drawing.Size(112, 39);
+            this.btn_reset.TabIndex = 18;
+            this.btn_reset.Text = "Reset";
+            this.btn_reset.UseVisualStyleBackColor = true;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
+            // 
+            // txt_TimKiem
+            // 
+            this.txt_TimKiem.Location = new System.Drawing.Point(155, 206);
+            this.txt_TimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_TimKiem.Name = "txt_TimKiem";
+            this.txt_TimKiem.Size = new System.Drawing.Size(311, 27);
+            this.txt_TimKiem.TabIndex = 50;
+            this.txt_TimKiem.TextChanged += new System.EventHandler(this.txt_TimKiem_TextChanged);
+            // 
+            // lbl_TimKiem
+            // 
+            this.lbl_TimKiem.AutoSize = true;
+            this.lbl_TimKiem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_TimKiem.Location = new System.Drawing.Point(12, 202);
+            this.lbl_TimKiem.Name = "lbl_TimKiem";
+            this.lbl_TimKiem.Size = new System.Drawing.Size(98, 28);
+            this.lbl_TimKiem.TabIndex = 51;
+            this.lbl_TimKiem.Text = "Tìm Kiếm";
             // 
             // FrmChucVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(800, 316);
+            this.ClientSize = new System.Drawing.Size(937, 410);
+            this.Controls.Add(this.lbl_TimKiem);
+            this.Controls.Add(this.txt_TimKiem);
+            this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.dgv_ShowCV);
             this.Controls.Add(this.btn_Xoa);
             this.Controls.Add(this.btn_Sua);
@@ -180,5 +218,8 @@
         private Button btn_Sua;
         private Button btn_Xoa;
         private DataGridView dgv_ShowCV;
+        private Button btn_reset;
+        private TextBox txt_TimKiem;
+        private Label lbl_TimKiem;
     }
 }

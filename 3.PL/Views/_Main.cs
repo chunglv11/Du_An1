@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _1.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,7 @@ namespace _3.PL.Views
 {
     public partial class _Main : Form
     {
+        public _1.DAL.Entities.NhanVien nv { get; set; }
         public _Main()
         {
             InitializeComponent();

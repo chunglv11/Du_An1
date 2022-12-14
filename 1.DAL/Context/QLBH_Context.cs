@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+
 using _1.DAL.Entities;
 using _1.DAL.Configurations;
 using System.Reflection;
@@ -23,7 +24,11 @@ namespace _1.DAL.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
+<<<<<<< HEAD
                 optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-AKSDRER\MOMO;Initial Catalog=Du_An1;Persist Security Info=True;User ID=sa1;Password=123");
+=======
+                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-AKSDRER\MOMO;Initial Catalog=DuAn_BH;Integrated Security=True");
+>>>>>>> uuu
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

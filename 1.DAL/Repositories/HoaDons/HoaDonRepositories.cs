@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using _1.DAL.Entities;
 using _1.DAL.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace _1.DAL.Repositories.HoaDons
 {
@@ -17,73 +18,53 @@ namespace _1.DAL.Repositories.HoaDons
         {
             _context = new QLBH_Context();
             _lstHoaDon = new List<HoaDon>();
-        }
-        public bool AddHdFromDb(HoaDon obj)
-        {
-            try
-            {
-                obj.Id = Guid.NewGuid();
-                _context.Add(obj);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            GetHoaDonFromDB();
         }
 
-        public bool DeleteHdFromDb(HoaDon obj)
+        public bool addHoaDon(HoaDon hoadon)
         {
-            try
-            {
-                _context.Remove(obj);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            if (hoadon == null) return false;
+            hoadon.Id = Guid.NewGuid();
+            _context.hoaDons.Add(hoadon);
+            _context.SaveChanges();
+            return true;
         }
 
-        public HoaDon GetHoaDonById(Guid id)
+        public bool DeleteHoaDon(HoaDon hoadon)
         {
-            throw new NotImplementedException();
+            if (hoadon == null) return false;
+            var temp = _context.hoaDons.FirstOrDefault(c => c.Id == hoadon.Id);
+            _context.hoaDons.Remove(temp);
+            _context.SaveChanges();
+            return true;
         }
 
-        public List<HoaDon> GetHoaDonFromDb()
+        public List<HoaDon> GetHoaDonFromDB()
         {
             _lstHoaDon = _context.hoaDons.ToList();
             return _lstHoaDon;
         }
 
-        public bool UpdateHdFromDb(HoaDon obj)
+        public bool updateHoaDon(HoaDon hoadon)
         {
-            try
-            {
-                HoaDon hoaDon = _context.hoaDons.Find(obj.Id);
-                hoaDon.IdKh = obj.IdKh;
-                hoaDon.IdNv = obj.IdNv;
-                hoaDon.MaHD = obj.MaHD;
-                hoaDon.NgayTao = obj.NgayTao;
-                hoaDon.NgayThanhToan = obj.NgayThanhToan;
-                hoaDon.NgayShip = obj.NgayShip;
-                hoaDon.TenNguoiShip = obj.TenNguoiShip;
-                hoaDon.NgayNhan = obj.NgayNhan;
-                hoaDon.TenNguoiNhan = obj.TenNguoiNhan;
-                hoaDon.Sdt = obj.Sdt;
-                hoaDon.DiaChi = obj.DiaChi;
-                hoaDon.TongTien = obj.TongTien;
-                hoaDon.TinhTrang = obj.TinhTrang;
-                _context.Update(hoaDon);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            if (hoadon == null) return false;
+            var temp = _context.hoaDons.FirstOrDefault(c => c.Id == hoadon.Id);
+            temp.IdKh = hoadon.IdKh;
+            temp.IdNv = hoadon.IdNv;
+            temp.MaHD = hoadon.MaHD;
+            temp.NgayTao = hoadon.NgayTao;
+            temp.NgayThanhToan = hoadon.NgayThanhToan;
+            temp.NgayShip = hoadon.NgayShip;
+            temp.TenNguoiShip = hoadon.TenNguoiShip;
+            temp.NgayNhan = hoadon.NgayNhan;
+            temp.TenNguoiNhan = hoadon.TenNguoiNhan;
+            temp.DiaChi = hoadon.DiaChi;
+            temp.Sdt = hoadon.Sdt;
+            temp.TongTien = hoadon.TongTien;
+            temp.TinhTrang = hoadon.TinhTrang;
+            _context.hoaDons.Update(temp);
+            _context.SaveChanges();
+            return true;
         }
     }
 }

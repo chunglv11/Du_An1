@@ -12,14 +12,23 @@ namespace _1.DAL.Repositories.NhanViens
     public class NhanVienRepositories : INhanVienRepositories
     {
         private QLBH_Context _context;
-        private List<NhanVien> _lstNhanVien;
+        private List<Entities.NhanVien> _nhanVienslst;
         public NhanVienRepositories()
         {
             _context = new QLBH_Context();
-            _lstNhanVien = new List<NhanVien>();
+            _nhanVienslst = new List<Entities.NhanVien>();
         }
-        public bool AddNvFromDb(NhanVien obj)
+
+        public bool addNhanVien(NhanVien nhanVien)
         {
+            _context.nhanViens.Add(nhanVien);
+            _context.SaveChanges();
+            return true;
+        }
+
+        public bool deleteNhanVien(NhanVien nhanVien)
+        {
+<<<<<<< HEAD
             try
             {
                 obj.MatKhau = CreatePassword.CreateRandomPassword(6);
@@ -31,42 +40,34 @@ namespace _1.DAL.Repositories.NhanViens
             {
                 return false;
             }
+=======
+            _context.nhanViens.Remove(nhanVien);
+            _context.SaveChanges();
+            return true;
+>>>>>>> uuu
         }
 
-        public bool DeleteNvFromDb(NhanVien obj)
+        public NhanVien GetCheck(string Email)
         {
-            try
-            {
-                _context.Remove(obj);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            NhanVien nv = _context.nhanViens.FirstOrDefault(p => p.Email == Email);
+            return nv;
         }
 
-        public List<NhanVien> GetAllNvFromDb()
+        public NhanVien GetCheckPass(string Pass)
         {
-            _lstNhanVien = _context.nhanViens.ToList();
-            return _lstNhanVien;
+            NhanVien nv = _context.nhanViens.FirstOrDefault(p => p.MatKhau == Pass);
+            return nv;
         }
 
-        public NhanVien GetByNameEmail(string email)
+        public List<NhanVien> GetNhanVien()
         {
-            if (email == String.Empty)
-            {
-                return null;
-            }
-            else
-            {
-                return _context.nhanViens.FirstOrDefault(c => c.Email == email);
-            }
+            _nhanVienslst = _context.nhanViens.ToList();
+            return _nhanVienslst;
         }
 
-        public bool UpdateNvFromDb(NhanVien obj)
+        public NhanVien GetNhanVien(string ma, string matkhau)
         {
+<<<<<<< HEAD
             try
             {
                 NhanVien nv = _context.nhanViens.Find(obj.Id);
@@ -91,6 +92,19 @@ namespace _1.DAL.Repositories.NhanViens
             {
                 return false;
             }
+=======
+            NhanVien nv = _context.nhanViens.FirstOrDefault(p => p.MaNv == ma && p.MatKhau == matkhau);
+            return nv;
+>>>>>>> uuu
         }
+
+        public bool updateNhanVien(NhanVien nhanVien)
+        {
+            _context.nhanViens.Update(nhanVien);
+            _context.SaveChanges();
+            return true;
+        }
+
+        
     }
 }

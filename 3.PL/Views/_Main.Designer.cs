@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_Main));
             this.panel_Desktop = new System.Windows.Forms.Panel();
             this.panel_Desk = new System.Windows.Forms.Panel();
-            this.ptb_Desktop = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_DangXuat = new System.Windows.Forms.Button();
@@ -48,8 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ptb_Avata = new System.Windows.Forms.PictureBox();
             this.panel_Desktop.SuspendLayout();
-            this.panel_Desk.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_Desktop)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -68,24 +64,13 @@
             // 
             // panel_Desk
             // 
-            this.panel_Desk.Controls.Add(this.ptb_Desktop);
+            this.panel_Desk.BackgroundImage = global::_3.PL.Properties.Resources.tải_xuống;
+            this.panel_Desk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel_Desk.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Desk.Location = new System.Drawing.Point(320, 0);
             this.panel_Desk.Name = "panel_Desk";
             this.panel_Desk.Size = new System.Drawing.Size(1577, 991);
             this.panel_Desk.TabIndex = 5;
-            // 
-            // ptb_Desktop
-            // 
-            this.ptb_Desktop.BackColor = System.Drawing.Color.White;
-            this.ptb_Desktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ptb_Desktop.Image = ((System.Drawing.Image)(resources.GetObject("ptb_Desktop.Image")));
-            this.ptb_Desktop.Location = new System.Drawing.Point(0, 0);
-            this.ptb_Desktop.Name = "ptb_Desktop";
-            this.ptb_Desktop.Size = new System.Drawing.Size(1577, 991);
-            this.ptb_Desktop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_Desktop.TabIndex = 3;
-            this.ptb_Desktop.TabStop = false;
             // 
             // panel1
             // 
@@ -291,8 +276,6 @@
             this.Text = "_Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel_Desktop.ResumeLayout(false);
-            this.panel_Desk.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_Desktop)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -304,7 +287,6 @@
 
         #endregion
         private Panel panel_Desktop;
-        private PictureBox ptb_Desktop;
         private Panel panel_Desk;
         private Panel panel1;
         private Button btn_BanHang;

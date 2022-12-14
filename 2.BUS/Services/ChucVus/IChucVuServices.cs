@@ -9,14 +9,10 @@ namespace _2.BUS.Services.ChucVus
 {
     public interface IChucVuServices
     {
-        bool AddCV(ChucVu obj);
-
-        bool DeleteCV(ChucVu obj);
-
-        bool UpdateCV(ChucVu obj);
-
-        ChucVu getmaid(Guid id);
-
-        List<ChucVu> GetAllChucVu();
+        string Add(ChucVu obj);
+        string Update(ChucVu obj);
+        string Delete(ChucVu obj);
+        List<ChucVu> GetAll();
+        List<ChucVu> GetAll(string input);
     }
 }

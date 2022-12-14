@@ -99,12 +99,30 @@ namespace _3.PL.Utilities
         }
         public static string CheckSo(string y)
         {
-            if (!Regex.IsMatch(y, @"[0-9]+"))
+            if (Regex.IsMatch(y, @"[0-9]+"))
             {
-                MessageBox.Show("ko chứa số");
+                MessageBox.Show("Mục này không được chứa số");
                 return "";
             }
             return y;
+        }
+        public static string checkChu(string y)
+        {
+            if (!Regex.IsMatch(y, @"^[a-zA-Z]+$"))
+            {
+                return y;
+            }
+            MessageBox.Show("Mục này không được chứa chữ");
+            return "";
+        }
+        public static string checkMail(string y)
+        {
+            if (Regex.IsMatch(y, @"^\S+@\S+$"))
+            {
+                return y;
+            }
+            MessageBox.Show("Mục này phải có định dạng là mail");
+            return "";
         }
     }
 }

@@ -2,6 +2,7 @@
 using _1.DAL.Repositories.HoaDons;
 using _1.DAL.Repositories.KhachHangs;
 using _1.DAL.Repositories.NhanViens;
+using _2.BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,24 +24,92 @@ namespace _2.BUS.Services.HoaDons
             _inhanVienRepositories = new NhanVienRepositories();
             _lstHoaDon = new List<HoaDon>();
         }
-        public bool AddHd(HoaDon obj)
-        {
-            if(obj == null)
-                return false;
-            _ihoaDonRepositories.AddHdFromDb(obj);
-            return true;
-        }
 
-        public bool DeleteHd(HoaDon obj)
+        public string Add(ViewHoaDon obj)
         {
             if (obj == null)
-                return false;
-            _ihoaDonRepositories.DeleteHdFromDb(obj);
-            return true;
+            {
+                return "Không thành công";
+            }
+            var HD = new HoaDon()
+            {
+                Id = obj.Id,
+                IdKh = obj.IdKh,
+                IdNv = obj.IdNv,
+                MaHD = obj.MaHD,
+                NgayTao = obj.NgayTao,
+                NgayThanhToan = obj.NgayThanhToan,
+                NgayShip = obj.NgayShip,
+                NgayNhan = obj.NgayNhan,
+                TenNguoiNhan = obj.TenNguoiNhan,
+                DiaChi = obj.DiaChi,
+                Sdt = obj.Sdt,
+                TongTien = obj.TongTien,
+                TinhTrang = obj.TinhTrang,
+
+            };
+            if (_ihoaDonRepositories.addHoaDon(HD)) return "Thêm thành công";
+            return "không thành công";
         }
 
-        public List<HoaDon> GetHoaDon()
+        public string Delete(ViewHoaDon obj)
         {
+            if (obj == null)
+            {
+                return "Không thành công";
+            }
+            var HD = new HoaDon()
+            {
+                Id = obj.Id,
+                IdKh = obj.IdKh,
+                IdNv = obj.IdNv,
+                MaHD = obj.MaHD,
+                NgayTao = obj.NgayTao,
+                NgayThanhToan = obj.NgayThanhToan,
+                NgayShip = obj.NgayShip,
+                NgayNhan = obj.NgayNhan,
+                TenNguoiNhan = obj.TenNguoiNhan,
+                DiaChi = obj.DiaChi,
+                Sdt = obj.Sdt,
+                TongTien = obj.TongTien,
+                TinhTrang = obj.TinhTrang,
+            };
+            if (_ihoaDonRepositories.DeleteHoaDon(HD)) return "Xóa thành công";
+            return "không thành công";
+        }
+
+        public List<ViewHoaDon> GetAll(string input)
+        {
+            List<ViewHoaDon> lstHD = new List<ViewHoaDon>();
+            lstHD = (from a in _ihoaDonRepositories.GetHoaDonFromDB()
+                     join b in _ikhachHangRepositories.GetKhachHangKhFromDb() on a.IdKh equals b.Id
+                     join c in _inhanVienRepositories.GetNhanVien() on a.IdNv equals c.Id
+        
+                     where a.MaHD == input
+                     select new ViewHoaDon
+                     {
+                         Id = a.Id,
+                         IdKh = a.IdKh,
+                         IdNv = a.IdNv,
+                         MaHD = a.MaHD,
+                         NgayTao = a.NgayTao,
+                         NgayThanhToan =a.NgayThanhToan,
+                         NgayShip = a.NgayShip,
+                         NgayNhan = a.NgayNhan,
+                         TenNguoiNhan = a.TenNguoiNhan,
+                         DiaChi = a.DiaChi,
+                         Sdt = b.Sdt,
+                         TongTien = a.TongTien,
+                         TinhTrang = a.TinhTrang,
+                         TenKH = b.HoTenKH,
+                         TenNV = c.HoTenNv,
+                     }).ToList();
+            return lstHD;
+        }
+
+        public List<ViewHoaDon> GetAll()
+        {
+<<<<<<< HEAD
             _lstHoaDon = (from a in _ihoaDonRepositories.GetHoaDonFromDb()
                         //  join b in _ikhachHangRepositories.GetKhachHangKhFromDb() on a.IdKh equals b.Id
                           join c in _inhanVienRepositories.GetAllNvFromDb() on a.IdNv equals c.Id
@@ -63,14 +132,58 @@ namespace _2.BUS.Services.HoaDons
                           }
                           ).ToList();
             return _lstHoaDon;
+=======
+            List<ViewHoaDon> lstHD = new List<ViewHoaDon>();
+            lstHD = (from a in _ihoaDonRepositories.GetHoaDonFromDB()
+                     join b in _ikhachHangRepositories.GetKhachHangKhFromDb() on a.IdKh equals b.Id
+                     join c in _inhanVienRepositories.GetNhanVien() on a.IdNv equals c.Id
+                  
+                     select new ViewHoaDon
+                     {
+                         Id = a.Id,
+                         IdKh = a.IdKh,
+                         IdNv = a.IdNv,
+                         MaHD = a.MaHD,
+                         NgayTao = a.NgayTao,
+                         NgayThanhToan = a.NgayThanhToan,
+                         NgayShip = a.NgayShip,
+                         NgayNhan = a.NgayNhan,
+                         TenNguoiNhan = a.TenNguoiNhan,
+                         DiaChi = a.DiaChi,
+                         Sdt = b.Sdt,
+                         TongTien = a.TongTien,
+                         TinhTrang = a.TinhTrang,
+                         TenKH = b.HoTenKH,
+                         TenNV = c.HoTenNv,
+                     }).ToList();
+            return lstHD;
+>>>>>>> uuu
         }
 
-        public bool UpdateHd(HoaDon obj)
+        public string Update(ViewHoaDon obj)
         {
             if (obj == null)
-                return false;
-            _ihoaDonRepositories.UpdateHdFromDb(obj);
-            return true;
+            {
+                return "Không thành công";
+            }
+            var HD = new HoaDon()
+            {
+                Id = obj.Id,
+                IdKh = obj.IdKh,
+                IdNv = obj.IdNv,
+                MaHD = obj.MaHD,
+                NgayTao = obj.NgayTao,
+                NgayThanhToan = obj.NgayThanhToan,
+                NgayShip = obj.NgayShip,
+                NgayNhan = obj.NgayNhan,
+                TenNguoiNhan = obj.TenNguoiNhan,
+                DiaChi = obj.DiaChi,
+                Sdt = obj.Sdt,
+                TongTien = obj.TongTien,
+                TinhTrang = obj.TinhTrang,
+            };
+            if (_ihoaDonRepositories.updateHoaDon(HD)) return "Sửa thành công";
+            return "không thành công";
         }
     }
 }

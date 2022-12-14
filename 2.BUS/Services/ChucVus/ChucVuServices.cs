@@ -18,45 +18,38 @@ namespace _2.BUS.Services.ChucVus
             _lstChucVu= new List<ChucVu>();
         }
 
-        public bool AddCV(ChucVu obj)
+        public string Add(ChucVu obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
-            _iChucVuRepos.AddCv(obj);
-            return true;
+            _iChucVuRepos.Add(obj);
+            return "Thành công";
         }
 
-        public bool DeleteCV(ChucVu obj)
+        public string Delete(ChucVu obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
-            _iChucVuRepos.DeleteCv(obj);
-            return true;
+            _iChucVuRepos.Delete(obj);
+            return "Thành công";
         }
 
-        public List<ChucVu> GetAllChucVu()
+        public List<ChucVu> GetAll()
         {
-            _lstChucVu = _iChucVuRepos.GetChucVuFromDb().ToList();
+            _lstChucVu = _iChucVuRepos.GetAll();
             return _lstChucVu;
         }
 
-        public ChucVu getmaid(Guid id)
+        public List<ChucVu> GetAll(string input)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool UpdateCV(ChucVu obj)
-        {
-            if (obj == null)
+            if (string.IsNullOrEmpty(input))
             {
-                return false;
+                return GetAll();
             }
-            _iChucVuRepos.UpdateCv(obj);
-            return true;
+            return _iChucVuRepos.GetAll().Where(c => c.TenCV.ToLower().Contains(input.ToLower()) || c.MaCV.ToLower().Contains(input.ToLower())).ToList();
+        
+    }
+
+        public string Update(ChucVu obj)
+        {
+            _iChucVuRepos.Update(obj);
+            return "Thành công";
         }
     }
 }

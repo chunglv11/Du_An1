@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.ViewModels
 {
-    public class HoaDonVm
+    public class ViewHoaDon
     {
         public Guid Id { get; set; }
         public Guid IdKh { get; set; }
@@ -22,6 +22,9 @@ namespace _2.BUS.ViewModels
         public string? Sdt { get; set; }
         public decimal TongTien { get; set; }
         public int TinhTrang { get; set; }
+
+        public string TenKH { get; set; }
+        public string TenNV { get; set; }
 
         //Thuộc tính hiển thị
         public string TenKH { get; set; }

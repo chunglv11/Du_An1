@@ -9,10 +9,12 @@ namespace _1.DAL.Repositories.NhanViens
 {
     public interface INhanVienRepositories
     {
-        bool AddNvFromDb(NhanVien obj);
-        bool UpdateNvFromDb(NhanVien obj);
-        bool DeleteNvFromDb(NhanVien obj);
-        NhanVien GetByNameEmail(string email);
-        List<NhanVien> GetAllNvFromDb();
+        bool addNhanVien(NhanVien nhanVien);
+        bool updateNhanVien(NhanVien nhanVien);
+        bool deleteNhanVien(NhanVien nhanVien);
+        List<NhanVien> GetNhanVien();
+        NhanVien GetNhanVien(string ma, string matkhau);
+        NhanVien GetCheck(string Email);
+        NhanVien GetCheckPass(string Pass);
     }
 }

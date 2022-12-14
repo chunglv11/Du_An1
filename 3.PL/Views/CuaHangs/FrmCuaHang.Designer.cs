@@ -44,6 +44,9 @@
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.dgv_ShowCuaHang = new System.Windows.Forms.DataGridView();
+            this.tb_TimKiem = new System.Windows.Forms.TextBox();
+            this.lbl_CuaHang = new System.Windows.Forms.Label();
+            this.btn_reset = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ShowCuaHang)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +67,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1048, 74);
+            this.panel1.Size = new System.Drawing.Size(1180, 74);
             this.panel1.TabIndex = 1;
             // 
             // label2
@@ -93,6 +96,7 @@
             this.tb_DiaChi.Name = "tb_DiaChi";
             this.tb_DiaChi.Size = new System.Drawing.Size(352, 38);
             this.tb_DiaChi.TabIndex = 4;
+            this.tb_DiaChi.Leave += new System.EventHandler(this.tb_DiaChi_Leave);
             // 
             // label3
             // 
@@ -111,12 +115,13 @@
             this.tb_ThanhPho.Name = "tb_ThanhPho";
             this.tb_ThanhPho.Size = new System.Drawing.Size(352, 38);
             this.tb_ThanhPho.TabIndex = 6;
+            this.tb_ThanhPho.Leave += new System.EventHandler(this.tb_ThanhPho_Leave);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(12, 279);
+            this.label4.Location = new System.Drawing.Point(12, 289);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 23);
             this.label4.TabIndex = 5;
@@ -129,6 +134,7 @@
             this.tb_QuocGia.Name = "tb_QuocGia";
             this.tb_QuocGia.Size = new System.Drawing.Size(352, 38);
             this.tb_QuocGia.TabIndex = 8;
+            this.tb_QuocGia.Leave += new System.EventHandler(this.tb_QuocGia_Leave);
             // 
             // label5
             // 
@@ -147,6 +153,8 @@
             this.tb_Ten.Name = "tb_Ten";
             this.tb_Ten.Size = new System.Drawing.Size(352, 38);
             this.tb_Ten.TabIndex = 10;
+            this.tb_Ten.TextChanged += new System.EventHandler(this.tb_Ten_TextChanged);
+            this.tb_Ten.Leave += new System.EventHandler(this.tb_Ten_Leave);
             // 
             // label6
             // 
@@ -161,7 +169,7 @@
             // btn_Them
             // 
             this.btn_Them.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_Them.Location = new System.Drawing.Point(12, 404);
+            this.btn_Them.Location = new System.Drawing.Point(12, 485);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(147, 49);
             this.btn_Them.TabIndex = 11;
@@ -172,7 +180,7 @@
             // btn_Sua
             // 
             this.btn_Sua.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_Sua.Location = new System.Drawing.Point(177, 404);
+            this.btn_Sua.Location = new System.Drawing.Point(177, 485);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(147, 49);
             this.btn_Sua.TabIndex = 12;
@@ -183,7 +191,7 @@
             // btn_Xoa
             // 
             this.btn_Xoa.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_Xoa.Location = new System.Drawing.Point(344, 404);
+            this.btn_Xoa.Location = new System.Drawing.Point(344, 485);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(147, 49);
             this.btn_Xoa.TabIndex = 13;
@@ -195,7 +203,7 @@
             // 
             this.dgv_ShowCuaHang.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgv_ShowCuaHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ShowCuaHang.Location = new System.Drawing.Point(534, 89);
+            this.dgv_ShowCuaHang.Location = new System.Drawing.Point(636, 89);
             this.dgv_ShowCuaHang.Name = "dgv_ShowCuaHang";
             this.dgv_ShowCuaHang.RowHeadersWidth = 51;
             this.dgv_ShowCuaHang.RowTemplate.Height = 29;
@@ -203,12 +211,45 @@
             this.dgv_ShowCuaHang.TabIndex = 14;
             this.dgv_ShowCuaHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ShowCuaHang_CellClick);
             // 
+            // tb_TimKiem
+            // 
+            this.tb_TimKiem.Location = new System.Drawing.Point(139, 409);
+            this.tb_TimKiem.Name = "tb_TimKiem";
+            this.tb_TimKiem.Size = new System.Drawing.Size(352, 27);
+            this.tb_TimKiem.TabIndex = 30;
+            this.tb_TimKiem.TextChanged += new System.EventHandler(this.tb_TimKiem_TextChanged);
+            // 
+            // lbl_CuaHang
+            // 
+            this.lbl_CuaHang.AutoSize = true;
+            this.lbl_CuaHang.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_CuaHang.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_CuaHang.Location = new System.Drawing.Point(13, 416);
+            this.lbl_CuaHang.Name = "lbl_CuaHang";
+            this.lbl_CuaHang.Size = new System.Drawing.Size(78, 20);
+            this.lbl_CuaHang.TabIndex = 31;
+            this.lbl_CuaHang.Text = "Tìm kiếm:";
+            // 
+            // btn_reset
+            // 
+            this.btn_reset.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_reset.Location = new System.Drawing.Point(517, 485);
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Size = new System.Drawing.Size(147, 49);
+            this.btn_reset.TabIndex = 32;
+            this.btn_reset.Text = "Reset";
+            this.btn_reset.UseVisualStyleBackColor = true;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
+            // 
             // FrmCuaHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1048, 478);
+            this.ClientSize = new System.Drawing.Size(1180, 671);
+            this.Controls.Add(this.btn_reset);
+            this.Controls.Add(this.tb_TimKiem);
+            this.Controls.Add(this.lbl_CuaHang);
             this.Controls.Add(this.dgv_ShowCuaHang);
             this.Controls.Add(this.btn_Xoa);
             this.Controls.Add(this.btn_Sua);
@@ -252,5 +293,8 @@
         private Button btn_Sua;
         private Button btn_Xoa;
         private DataGridView dgv_ShowCuaHang;
+        private TextBox tb_TimKiem;
+        private Label lbl_CuaHang;
+        private Button btn_reset;
     }
 }

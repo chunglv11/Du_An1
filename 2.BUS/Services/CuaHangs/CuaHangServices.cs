@@ -18,34 +18,38 @@ namespace _2.BUS.Services.CuaHangs
             _icuaHangRepositories = new CuaHangRepositories();
             _lstCuaHang = new List<CuaHang>();
         }
-        public bool AddCH(CuaHang obj)
+
+        public string Add(CuaHang obj)
         {
-            if (obj == null)
-                return false;
-            _icuaHangRepositories.AddChFromDb(obj);
-            return true;
+            _icuaHangRepositories.Add(obj);
+            return "Thành công";
         }
 
-        public bool DeleteCH(CuaHang obj)
+        public string Delete(CuaHang obj)
         {
-            if (obj == null)
-                return false;
-            _icuaHangRepositories.DeleteChFromDb(obj);
-            return true;
+            _icuaHangRepositories.Delete(obj);
+            return "Thành công";
         }
 
-        public List<CuaHang> GetCuaHang()
+        public List<CuaHang> GetAll()
         {
-            _lstCuaHang = _icuaHangRepositories.GetCuaHangFromDb().ToList();
+            _lstCuaHang = _icuaHangRepositories.GetAll();
             return _lstCuaHang;
         }
 
-        public bool UpdateCH(CuaHang obj)
+        public List<CuaHang> GetAll(string input)
         {
-            if (obj == null)
-                return false;
-            _icuaHangRepositories.UpdateChFromDb(obj);
-            return true;
+            if (string.IsNullOrEmpty(input))
+            {
+                return GetAll();
+            }
+            return _icuaHangRepositories.GetAll().Where(c => c.TenCH.ToLower().Contains(input.ToLower()) || c.MaCH.ToLower().Contains(input.ToLower())).ToList();
+        }
+
+        public string Update(CuaHang obj)
+        {
+            _icuaHangRepositories.Update(obj);
+            return "Thành công";
         }
     }
 }

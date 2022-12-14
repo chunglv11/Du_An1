@@ -1,8 +1,15 @@
 ﻿using _1.DAL.Entities;
+<<<<<<< HEAD
 using _2.BUS.ViewModels;
 using _1.DAL.Repositories.NhanViens;
 using _1.DAL.Repositories.CuaHangs;
 using _1.DAL.Repositories.ChucVus;
+=======
+using _1.DAL.Repositories.ChucVus;
+using _1.DAL.Repositories.CuaHangs;
+using _1.DAL.Repositories.NhanViens;
+using _2.BUS.ViewModels;
+>>>>>>> uuu
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +20,7 @@ namespace _2.BUS.Services.NhanViens
 {
     public class NhanVienServices : INhanVienServices
     {
+<<<<<<< HEAD
         private INhanVienRepositories _inhanVienRepositories;
         private IChucVuRepositories _ichucVuRepositories;
         private ICuaHangRepositories _icuaHangRepositories;
@@ -33,10 +41,59 @@ namespace _2.BUS.Services.NhanViens
                 return false;
             }
             return _inhanVienRepositories.AddNvFromDb(obj);
+=======
+        private INhanVienRepositories _INhanVienReps;
+        private ICuaHangRepositories _ICuaHangReps;
+        private IChucVuRepositories _IChucVuReps;
+        private List<ViewNhanVien> _viewNhanVienslst;
+        private List<NhanVien> _lstNhanVien;
+        public NhanVienServices()
+        {
+            _IChucVuReps = new ChucVuRepositories();
+            _ICuaHangReps = new CuaHangRepositories();
+            _INhanVienReps = new NhanVienRepositories();
+            _viewNhanVienslst = new List<ViewNhanVien>();
+        }
+        public bool addSanPhamChiTiet(ViewNhanVien nhanVien)
+        {
+            NhanVien nv = new NhanVien()
+            {
+                Id = nhanVien.Id,
+                MaNv = nhanVien.MaNv,
+                HoTenNv = nhanVien.HoTenNv,
+                Anh = nhanVien.Anh,
+                GioiTinh = nhanVien.GioiTinh,
+                NgaySinh = nhanVien.NgaySinh,
+                CCCD = nhanVien.CCCD,
+                Sdt = nhanVien.Sdt,
+                MatKhau = nhanVien.MatKhau,
+                Email = nhanVien.Email,
+                IdCh = nhanVien.IdCh,
+                IdCv = nhanVien.IdCv,
+                DiaChi = nhanVien.DiaChi,
+                TrangThai = nhanVien.TrangThai
+            };
+            _INhanVienReps.addNhanVien(nv);
+            return true;
         }
 
-        public bool DeleteNv(NhanVien obj)
+        public bool deleteSanPhamChiTiet(Guid idnv)
         {
+            var x = _INhanVienReps.GetNhanVien().FirstOrDefault(p => p.Id == idnv);
+            _INhanVienReps.deleteNhanVien(x);
+            return true;
+        }
+
+        public List<NhanVien> GetNhanViens()
+        {
+            _lstNhanVien = _INhanVienReps.GetNhanVien().ToList();
+            return _lstNhanVien;
+>>>>>>> uuu
+        }
+
+        public List<ViewNhanVien> GetViewChiTietSps()
+        {
+<<<<<<< HEAD
             if (obj == null)
                 return false;
             _inhanVienRepositories.DeleteNvFromDb(obj);
@@ -73,10 +130,54 @@ namespace _2.BUS.Services.NhanViens
                            TenCV = c.TenCV
                        };
             return Show.ToList();
+=======
+            _viewNhanVienslst = (from a in _INhanVienReps.GetNhanVien()
+                                 join b in _ICuaHangReps.GetAll() on a.IdCh equals b.Id
+                                 join c in _IChucVuReps.GetAll() on a.IdCv equals c.Id
+                                 select new ViewNhanVien
+                                 {
+                                     Id = a.Id,
+                                     MaNv = a.MaNv,
+                                     HoTenNv = a.HoTenNv,
+                                     Anh = a.Anh,
+                                     GioiTinh = a.GioiTinh,
+                                     NgaySinh = a.NgaySinh,
+                                     CCCD = a.CCCD,
+                                     Email = a.Email,
+                                     Sdt = a.Sdt,
+                                     MatKhau = a.MatKhau,
+                                     ChucVu = c.TenCV,
+                                     TenCuaHang = b.TenCH,
+                                     DiaChi = a.DiaChi,
+                                     TrangThai = a.TrangThai
+                                 }).ToList();
+            return _viewNhanVienslst;
         }
 
-        public bool UpdateNv(NhanVien obj)
+        public bool updateSanPhamChiTiet(ViewNhanVien nhanVien)
         {
+            var x = _INhanVienReps.GetNhanVien().FirstOrDefault(p => p.Id == nhanVien.Id);
+            x.MaNv = nhanVien.MaNv;
+            x.HoTenNv = nhanVien.HoTenNv;
+            x.Anh = nhanVien.Anh;
+            x.GioiTinh = nhanVien.GioiTinh;
+            x.NgaySinh = nhanVien.NgaySinh;
+            x.CCCD = nhanVien.CCCD;
+            x.Sdt = nhanVien.Sdt;
+            x.Email = nhanVien.Email;
+            x.MatKhau = nhanVien.MatKhau;
+            x.IdCh = nhanVien.IdCh;
+            x.IdCv = nhanVien.IdCv;
+            x.DiaChi = nhanVien.DiaChi;
+            x.TrangThai = nhanVien.TrangThai;
+            _INhanVienReps.updateNhanVien(x);
+            return true;
+>>>>>>> uuu
+        }
+
+        public bool updateSanPhamChiTiets(NhanVien nhanVien)
+        {
+<<<<<<< HEAD
             var exist = _inhanVienRepositories.GetByNameEmail(obj.Email);
             if (exist != null || obj == null)
             {
@@ -87,6 +188,10 @@ namespace _2.BUS.Services.NhanViens
                 _inhanVienRepositories.UpdateNvFromDb(obj);
                 return true;
             }
+=======
+            _INhanVienReps.updateNhanVien(nhanVien);
+            return true;
+>>>>>>> uuu
         }
     }
 }

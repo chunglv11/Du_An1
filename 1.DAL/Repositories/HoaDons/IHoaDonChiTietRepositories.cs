@@ -9,14 +9,10 @@ namespace _1.DAL.Repositories.HoaDons
 {
     public interface IHoaDonChiTietRepositories
     {
-        bool AddHdCTFromDb(HoaDonChiTiet obj);
+        bool addHDCT(HoaDonChiTiet hoadonCT);
+        bool DeleteHDCT(HoaDonChiTiet hoadonCT);
+        bool updateHDCT(HoaDonChiTiet hoadonCT);
 
-        bool DeleteHdCTFromDb(HoaDonChiTiet obj);
-
-        bool UpdateHdCTFromDb(HoaDonChiTiet obj);
-
-        HoaDonChiTiet GetHoaDonCTById(Guid id);
-
-        List<HoaDonChiTiet> GetHoaDonCTFromDb();
+        List<HoaDonChiTiet> GetHDCTFromDB();
     }
 }

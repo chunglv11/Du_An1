@@ -12,6 +12,7 @@ using _3.PL.Views.SanPhams;
 using _3.PL.Views.CuaHangs;
 using _3.PL.Views.ChucVus;
 using _3.PL.Views.KhachHang;
+using _3.PL.Views.HoaDon;
 
 using _3.PL.Views;
 
@@ -30,7 +31,13 @@ namespace _3.PL
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
+<<<<<<< HEAD
             Application.Run(new _Main());
+=======
+
+            Application.Run(new FrmLogin());
+
+>>>>>>> uuu
 
 
         }

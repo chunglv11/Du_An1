@@ -19,63 +19,38 @@ namespace _1.DAL.Repositories.ChucVus
             _lstChucVu = new List<ChucVu>();  
         }
 
-        public bool AddCv(ChucVu obj)
+        public bool Add(ChucVu obj)
         {
-            try
-            {
-                _Context.Add(obj);
-                _Context.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            
+            if (obj == null) return false;
+            _Context.chucVus.Add(obj);
+            _Context.SaveChanges();
+            return true;
         }
 
-        public bool DeleteCv(ChucVu obj)
+        public bool Delete(ChucVu obj)
         {
-            try
-            {
-                _Context.Remove(obj);
-                _Context.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            
+            if (obj == null) return false;
+            var tempobj = _Context.chucVus.FirstOrDefault(c => c.Id == obj.Id);
+            _Context.Remove(tempobj);
+            _Context.SaveChanges();
+            return true;
         }
 
-        public List<ChucVu> GetChucVuFromDb()
+        public List<ChucVu> GetAll()
         {
-            _lstChucVu = _Context.chucVus.ToList();
-            return _lstChucVu;
+            return _Context.chucVus.ToList();
         }
 
-        public ChucVu getmaid(Guid id)
+        public bool Update(ChucVu obj)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool UpdateCv(ChucVu obj)
-        {
-            try
-            {
-                ChucVu cv = _Context.chucVus.Find(obj.Id);
-                cv.MaCV = obj.MaCV;
-                cv.TenCV = obj.TenCV;
-                _Context.Update(cv);
-                _Context.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            
+            if (obj == null) return false;
+            var tempobj = _Context.chucVus.FirstOrDefault(c => c.Id == obj.Id);
+            tempobj.Id = obj.Id;
+            tempobj.MaCV = obj.MaCV;
+            tempobj.TenCV = obj.TenCV;
+            _Context.chucVus.Update(tempobj);
+            _Context.SaveChanges();
+            return true;
         }
     }
 }
